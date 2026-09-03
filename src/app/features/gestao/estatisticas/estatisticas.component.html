@@ -1,0 +1,153 @@
+<header class="topo-simples">
+  <div class="su-container topo-simples-inner">
+    <span class="marca"><span class="marca-icone">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></svg>
+    </span>SpeakUp</span>
+    <a routerLink="/gestao/dashboard" class="link-voltar">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12" /><polyline points="12 19 5 12 12 5" /></svg>
+      Voltar ao Dashboard
+    </a>
+  </div>
+</header>
+
+<main class="su-container pagina">
+  <div class="cabecalho">
+    <div>
+      <h1>Relatórios e Estatísticas</h1>
+      <p class="subtitulo">Análise completa dos relatos do sistema</p>
+    </div>
+    <button type="button" class="su-btn su-btn-primary" (click)="exportarPdf()">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" /></svg>
+      Exportar PDF
+    </button>
+  </div>
+
+  <div class="grid-kpis">
+    <div class="su-card kpi-card">
+      <span class="kpi-label">Total de Relatos</span>
+      <strong class="kpi-valor">{{ kpis.totalRelatos }}</strong>
+      <span class="kpi-variacao positiva">↗ {{ kpis.totalRelatosVariacao }}</span>
+    </div>
+    <div class="su-card kpi-card">
+      <span class="kpi-label">Relatos Resolvidos</span>
+      <strong class="kpi-valor cor-green">{{ kpis.relatosResolvidos }}</strong>
+      <span class="kpi-variacao positiva">↗ {{ kpis.relatosResolvidosVariacao }}</span>
+    </div>
+    <div class="su-card kpi-card">
+      <span class="kpi-label">Taxa de Resolução</span>
+      <strong class="kpi-valor">{{ kpis.taxaResolucao }}</strong>
+      <span class="kpi-variacao neutra">{{ kpis.taxaResolucaoMeta }}</span>
+    </div>
+    <div class="su-card kpi-card">
+      <span class="kpi-label">Tempo Médio</span>
+      <strong class="kpi-valor">{{ kpis.tempoMedio }}</strong>
+      <span class="kpi-variacao positiva">↘ {{ kpis.tempoMedioVariacao }}</span>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="su-card bloco">
+      <h2>Relatos por Categoria</h2>
+      <app-bar-chart [categorias]="categoriasNomes" [series]="seriesPorCategoria" />
+    </div>
+    <div class="su-card bloco">
+      <h2>Distribuição por Categoria</h2>
+      <app-pie-chart [dados]="dadosPizza" />
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="su-card bloco">
+      <h2>Relatos Resolvidos por Mês</h2>
+      <app-line-chart [categorias]="meses" [series]="serieResolvidosPorMes" />
+    </div>
+    <div class="su-card bloco">
+      <h2>Enviados vs Resolvidos</h2>
+      <app-line-chart [categorias]="meses" [series]="seriesEnviadosVsResolvidos" />
+    </div>
+  </div>
+
+  <div class="su-card bloco">
+    <h2>Análise Mensal por Categoria</h2>
+    <p class="descricao-bloco">Relatos resolvidos separados por categoria ao longo dos meses</p>
+    <app-bar-chart [categorias]="meses" [series]="seriesAnaliseMensal" />
+  </div>
+
+  <div class="su-card bloco">
+    <h2>Detalhamento Mensal</h2>
+    <div class="su-scroll-x">
+      <table class="tabela">
+        <thead>
+          <tr>
+            <th>Mês</th><th>Bullying</th><th>Infraestrutura</th><th>Bem-estar</th><th>Sugestão</th><th>Assédio</th><th>Outros</th><th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (m of detalhamentoMensal; track m.mes) {
+            <tr>
+              <td class="celula-titulo">{{ m.mes }}</td>
+              <td>{{ m.bullying }}</td>
+              <td>{{ m.infraestrutura }}</td>
+              <td>{{ m.bemEstar }}</td>
+              <td>{{ m.sugestao }}</td>
+              <td>{{ m.assedio }}</td>
+              <td>{{ m.outros }}</td>
+              <td><strong>{{ m.total }}</strong></td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="su-card bloco">
+    <h2>Tendência de Resolução por Categoria</h2>
+    <p class="descricao-bloco">Comparação mensal entre categorias para identificar padrões</p>
+    <app-line-chart [categorias]="meses" [series]="seriesAnaliseMensal" />
+  </div>
+
+  <div class="su-card bloco">
+    <h2>Estatísticas Detalhadas</h2>
+    <div class="su-scroll-x">
+      <table class="tabela">
+        <thead>
+          <tr><th>Categoria</th><th>Total de Relatos</th><th>Concluídos</th><th>Em Andamento</th><th>Taxa de Conclusão</th></tr>
+        </thead>
+        <tbody>
+          @for (e of estatisticasDetalhadas; track e.categoria) {
+            <tr>
+              <td class="celula-titulo">{{ e.categoria }}</td>
+              <td>{{ e.total }}</td>
+              <td><span class="chip-numero chip-verde">{{ e.concluidos }}</span></td>
+              <td><span class="chip-numero">{{ e.emAndamento }}</span></td>
+              <td>
+                <div class="barra-progresso">
+                  <div class="barra-preenchida" [style.width.%]="e.taxa"></div>
+                </div>
+                <span class="taxa-texto">{{ e.taxa }}%</span>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="grid-destaques">
+    <div class="destaque destaque-azul">
+      <span class="destaque-label">Categoria Mais Relatada</span>
+      <strong>{{ categoriaMaisRelatada.rotulo }}</strong>
+      <span class="destaque-info">{{ categoriaMaisRelatada.valor }} relatos ({{ (categoriaMaisRelatada.valor / totalGeral * 100) | number:'1.0-0' }}% do total)</span>
+    </div>
+    <div class="destaque destaque-verde">
+      <span class="destaque-label">Melhor Taxa de Resolução</span>
+      <strong>{{ melhorTaxa.categoria }}</strong>
+      <span class="destaque-info">{{ melhorTaxa.taxa }}% resolvidos</span>
+    </div>
+    <div class="destaque destaque-laranja">
+      <span class="destaque-label">Requer Atenção</span>
+      <strong>{{ piorTaxa.categoria }}</strong>
+      <span class="destaque-info">{{ piorTaxa.taxa }}% resolvidos</span>
+    </div>
+  </div>
+</main>

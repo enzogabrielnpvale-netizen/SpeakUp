@@ -1,0 +1,20 @@
+@import '../../../shared/styles/tabela.css';
+
+.pagina { padding: 28px 24px 60px; }
+
+.grid-stats-4 { grid-template-columns: repeat(4, 1fr); }
+.cor-red { color: var(--su-danger-600) !important; }
+
+.chip-numero {
+  display: inline-flex; align-items: center; justify-content: center; min-width: 24px; height: 22px;
+  padding: 0 7px; border-radius: 999px; background: var(--su-blue-100); color: var(--su-blue-600); font-weight: 600; font-size: 12px;
+}
+.chip-status { display: inline-flex; padding: 3px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; }
+.chip-ativo { background: var(--su-success-100); color: var(--su-success-600); }
+.chip-inativo { background: var(--su-danger-100); color: var(--su-danger-600); }
+
+.acoes-tabela { display: flex; gap: 8px; }
+.icone-acao { background: transparent; border: none; color: var(--su-blue-600); padding: 4px; border-radius: 6px; display: flex; }
+.icone-acao:hover { background: var(--su-blue-50); }
+.icone-acao-perigo { color: var(--su-danger-600); }
+.icone-acao-perigo:hover { background: var(--su-danger-100); }

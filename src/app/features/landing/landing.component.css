@@ -1,0 +1,232 @@
+.topo {
+  background: var(--su-navy-900);
+}
+
+.topo-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 68px;
+}
+
+.topo ::ng-deep .logo-nome {
+  color: #fff;
+}
+
+.topo-acoes {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.topo-entrar {
+  color: #fff;
+}
+
+.hero {
+  background: linear-gradient(180deg, var(--su-navy-900), var(--su-navy-800));
+  padding: 90px 0 100px;
+  text-align: center;
+}
+
+.hero-inner {
+  max-width: 720px;
+}
+
+.hero h1 {
+  color: #fff;
+  font-size: 42px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.hero h1 span {
+  color: var(--su-blue-400);
+}
+
+.hero p {
+  color: #c9dcec;
+  font-size: 16px;
+  margin: 22px auto 34px;
+  max-width: 560px;
+  line-height: 1.6;
+}
+
+.hero-acoes {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+}
+
+.hero-btn-gestao {
+  background: transparent;
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.hero-btn-gestao:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.secao {
+  padding: 64px 0;
+}
+
+.secao-clara {
+  background: var(--su-blue-50);
+}
+
+.titulo-secao {
+  text-align: center;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--su-gray-900);
+  margin-bottom: 40px;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.beneficio-card {
+  padding: 26px;
+  text-align: left;
+}
+
+.beneficio-icone {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: var(--su-blue-100);
+  color: var(--su-blue-600);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.beneficio-card h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.beneficio-card p {
+  font-size: 13.5px;
+  color: var(--su-gray-500);
+  line-height: 1.6;
+}
+
+.passo {
+  text-align: center;
+}
+
+.passo-numero {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--su-blue-600);
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.passo h4 {
+  font-size: 14.5px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.passo p {
+  font-size: 12.5px;
+  color: var(--su-gray-500);
+  line-height: 1.5;
+}
+
+.grid-categorias {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.categoria-pill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 20px;
+  border: 1px solid var(--su-gray-200);
+  border-radius: var(--su-radius-md);
+  background: #fff;
+  color: var(--su-gray-700);
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.categoria-pill svg {
+  color: var(--su-blue-500);
+  flex-shrink: 0;
+}
+
+.cta {
+  background: var(--su-navy-800);
+  padding: 60px 0;
+  text-align: center;
+}
+
+.cta-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--su-blue-300, #7cc4ea);
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.cta h2 {
+  color: #fff;
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.cta p {
+  color: #c9dcec;
+  font-size: 14.5px;
+  margin-bottom: 26px;
+}
+
+.cta-btn {
+  padding: 12px 26px;
+}
+
+.rodape {
+  background: var(--su-blue-50);
+  padding: 22px 0;
+  text-align: center;
+  color: var(--su-gray-500);
+  font-size: 13px;
+  border-top: 1px solid var(--su-gray-200);
+}
+
+@media (max-width: 860px) {
+
+  .grid-3,
+  .grid-4,
+  .grid-categorias {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+}

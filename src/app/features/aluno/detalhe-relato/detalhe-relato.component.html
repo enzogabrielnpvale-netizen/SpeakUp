@@ -1,0 +1,87 @@
+<header class="topo-simples">
+  <div class="su-container topo-simples-inner">
+    <span class="marca"><span class="marca-icone">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></svg>
+    </span>SpeakUp</span>
+    <a routerLink="/aluno/historico" class="link-voltar">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12" /><polyline points="12 19 5 12 12 5" /></svg>
+      Voltar
+    </a>
+  </div>
+</header>
+
+@if (relato(); as r) {
+  <main class="su-container pagina">
+    <div class="grid-detalhe">
+      <div class="coluna-principal">
+        <div class="su-card cabecalho-relato">
+          <div class="linha-topo">
+            <h1>{{ r.titulo }}</h1>
+            <app-badge [variante]="varianteStatus(r.status)">{{ r.status }}</app-badge>
+          </div>
+          <div class="meta">
+            <span class="meta-item">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41 11 3.83A2 2 0 0 0 9.59 3.24L4 3a1 1 0 0 0-1 1l.24 5.59a2 2 0 0 0 .59 1.41l9.58 9.58a2 2 0 0 0 2.83 0l4.35-4.35a2 2 0 0 0 0-2.82z" /></svg>
+              {{ r.categoria }}
+            </span>
+            <span class="meta-item">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" /><line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" /></svg>
+              {{ r.criadoEm | dataBr }}
+            </span>
+            <span class="meta-item meta-prioridade" [class]="'prio-' + variantePrioridade(r.prioridade)">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" /><line x1="12" y1="9" x2="12" y2="13" /><line x1="12" y1="17" x2="12.01" y2="17" /></svg>
+              Prioridade {{ r.prioridade }}
+            </span>
+          </div>
+        </div>
+
+        <div class="su-card bloco">
+          <h2>Descrição do Relato</h2>
+          <p>{{ r.descricao }}</p>
+        </div>
+
+        @if (r.respostaGestao) {
+          <div class="resposta-gestao">
+            <h2>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></svg>
+              Resposta da Gestão
+            </h2>
+            <p>{{ r.respostaGestao }}</p>
+          </div>
+        }
+      </div>
+
+      <div class="coluna-lateral">
+        <div class="su-card bloco">
+          <h2>Linha do Tempo</h2>
+          <ul class="timeline">
+            @for (evento of r.linhaDoTempo; track evento.data; let last = $last) {
+              <li [class.timeline-ativo]="last">
+                <span class="timeline-ponto">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>
+                </span>
+                <span>
+                  <strong>{{ evento.titulo }}</strong>
+                  <small>{{ evento.data | dataBr:true }}</small>
+                </span>
+              </li>
+            }
+          </ul>
+        </div>
+
+        <div class="su-card bloco">
+          <h2>Informações</h2>
+          <dl class="info-lista">
+            <div><dt>ID do Relato</dt><dd>#{{ r.id }}</dd></div>
+            <div><dt>Criado em</dt><dd>{{ r.criadoEm | dataBr:true }}</dd></div>
+            <div><dt>Última atualização</dt><dd>{{ r.atualizadoEm | dataBr:true }}</dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </main>
+} @else {
+  <main class="su-container pagina">
+    <div class="su-card estado-vazio">Relato não encontrado.</div>
+  </main>
+}

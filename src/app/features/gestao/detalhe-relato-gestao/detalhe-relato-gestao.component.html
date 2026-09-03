@@ -1,0 +1,92 @@
+<header class="topo-simples">
+  <div class="su-container topo-simples-inner">
+    <span class="marca"><span class="marca-icone">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></svg>
+    </span>SpeakUp</span>
+    <a routerLink="/gestao/relatos" class="link-voltar">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12" /><polyline points="12 19 5 12 12 5" /></svg>
+      Voltar
+    </a>
+  </div>
+</header>
+
+@if (relato(); as r) {
+  <main class="su-container pagina">
+    <div class="grid-detalhe">
+      <div class="coluna-principal">
+        <div class="su-card cabecalho-relato">
+          <div class="linha-topo">
+            <h1>{{ r.titulo }}</h1>
+            <app-badge [variante]="varianteStatus(r.status)">{{ r.status }}</app-badge>
+          </div>
+          <div class="meta">
+            <span class="meta-item">{{ r.categoria }}</span>
+            <span class="meta-item">Aluno: {{ r.alunoNome }}</span>
+            <span class="meta-item">{{ r.criadoEm | dataBr }}</span>
+            <span class="meta-item meta-prioridade" [class]="'prio-' + variantePrioridade(r.prioridade)">Prioridade {{ r.prioridade }}</span>
+          </div>
+        </div>
+
+        <div class="su-card bloco">
+          <h2>Descrição do Relato</h2>
+          <p>{{ r.descricao }}</p>
+        </div>
+
+        <div class="su-card bloco">
+          <h2>Responder ao Aluno</h2>
+
+          <div class="su-field">
+            <label>Mensagem de resposta</label>
+            <textarea class="su-input su-input-plain" rows="4" placeholder="Escreva a resposta que o aluno irá visualizar..."
+              [ngModel]="resposta()" (ngModelChange)="resposta.set($event)"></textarea>
+          </div>
+
+          <div class="su-field">
+            <label>Atualizar status</label>
+            <select class="su-input su-input-plain" [ngModel]="statusSelecionado()" (ngModelChange)="statusSelecionado.set($event)">
+              @for (s of statusDisponiveis; track s) { <option [value]="s">{{ s }}</option> }
+            </select>
+          </div>
+
+          <button type="button" class="su-btn su-btn-primary" (click)="enviarResposta()">Enviar Resposta</button>
+          @if (enviado()) {
+            <span class="confirmacao">✓ Resposta enviada com sucesso!</span>
+          }
+        </div>
+      </div>
+
+      <div class="coluna-lateral">
+        <div class="su-card bloco">
+          <h2>Linha do Tempo</h2>
+          <ul class="timeline">
+            @for (evento of r.linhaDoTempo; track evento.data; let last = $last) {
+              <li [class.timeline-ativo]="last">
+                <span class="timeline-ponto">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>
+                </span>
+                <span>
+                  <strong>{{ evento.titulo }}</strong>
+                  <small>{{ evento.data | dataBr:true }}</small>
+                </span>
+              </li>
+            }
+          </ul>
+        </div>
+
+        <div class="su-card bloco">
+          <h2>Informações</h2>
+          <dl class="info-lista">
+            <div><dt>ID do Relato</dt><dd>#{{ r.id }}</dd></div>
+            <div><dt>Aluno</dt><dd>{{ r.alunoNome }}</dd></div>
+            <div><dt>Criado em</dt><dd>{{ r.criadoEm | dataBr:true }}</dd></div>
+            <div><dt>Última atualização</dt><dd>{{ r.atualizadoEm | dataBr:true }}</dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </main>
+} @else {
+  <main class="su-container pagina">
+    <div class="su-card estado-vazio">Relato não encontrado.</div>
+  </main>
+}

@@ -1,0 +1,38 @@
+.pagina { max-width: 760px; padding: 32px 24px 60px; }
+.pagina h1 { font-size: 22px; font-weight: 700; color: var(--su-gray-900); }
+.subtitulo { color: var(--su-gray-500); font-size: 14px; margin-top: 4px; margin-bottom: 24px; }
+
+.bloco { padding: 20px 22px; margin-bottom: 16px; }
+.bloco-titulo { display: block; font-size: 13.5px; font-weight: 700; color: var(--su-gray-900); margin-bottom: 12px; }
+
+.grid-categoria { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.categoria-opcao {
+  display: flex; align-items: flex-start; gap: 10px; text-align: left;
+  padding: 14px; border: 1px solid var(--su-gray-200); border-radius: var(--su-radius-sm);
+  background: #fff;
+}
+.categoria-opcao.selecionada { border-color: var(--su-blue-500); background: var(--su-blue-50); }
+.categoria-opcao strong { display: block; font-size: 13.5px; color: var(--su-gray-900); }
+.categoria-opcao small { display: block; font-size: 12px; color: var(--su-gray-500); margin-top: 2px; }
+.radio { width: 16px; height: 16px; border-radius: 50%; border: 2px solid var(--su-gray-300); flex-shrink: 0; margin-top: 2px; position: relative; }
+.radio.marcado { border-color: var(--su-blue-600); }
+.radio.marcado::after { content: ''; position: absolute; inset: 3px; border-radius: 50%; background: var(--su-blue-600); }
+
+.dropzone {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
+  border: 1.5px dashed var(--su-gray-300); border-radius: var(--su-radius-sm); padding: 32px;
+  color: var(--su-gray-500); cursor: pointer; text-align: center;
+}
+.dropzone:hover { border-color: var(--su-blue-400); background: var(--su-blue-50); }
+.dropzone small { font-size: 12px; }
+
+.lista-arquivos { list-style: none; margin: 14px 0 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.lista-arquivos li { display: flex; align-items: center; justify-content: space-between; font-size: 13px; color: var(--su-gray-700); background: var(--su-gray-50); border-radius: 6px; padding: 8px 12px; }
+.lista-arquivos button { background: transparent; border: none; color: var(--su-gray-500); font-size: 16px; line-height: 1; }
+
+.alerta-privacidade {
+  background: var(--su-blue-50); border: 1px solid var(--su-blue-100); border-radius: var(--su-radius-md);
+  padding: 14px 16px; font-size: 13px; color: var(--su-gray-600); margin-bottom: 20px; line-height: 1.5;
+}
+
+.acoes-form { display: flex; gap: 12px; }

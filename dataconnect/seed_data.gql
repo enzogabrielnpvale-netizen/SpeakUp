@@ -1,0 +1,27 @@
+mutation SeedDatabase @transaction {
+  user_insertMany(data: [
+    { id_expr: "uuidV4()", name: "Alice", email: "alice@example.com" },
+    { id_expr: "uuidV4()", name: "Bob", email: "bob@example.com" },
+    { id_expr: "uuidV4()", name: "Charlie", email: "charlie@example.com" }
+  ])
+  project_insertMany(data: [
+    { id_expr: "uuidV4()", name: "Project Alpha", owner: { id: "550e8400-e29b-41d4-a716-446655440000" } },
+    { id_expr: "uuidV4()", name: "Project Beta", owner: { id: "550e8400-e29b-41d4-a716-446655440001" } },
+    { id_expr: "uuidV4()", name: "Project Gamma", owner: { id: "550e8400-e29b-41d4-a716-446655440002" } }
+  ])
+  document_insertMany(data: [
+    { id_expr: "uuidV4()", title: "Specs", contentSnippet: "Content A", project: { id: "550e8400-e29b-41d4-a716-446655440010" } },
+    { id_expr: "uuidV4()", title: "Design", contentSnippet: "Content B", project: { id: "550e8400-e29b-41d4-a716-446655440011" } },
+    { id_expr: "uuidV4()", title: "Report", contentSnippet: "Content C", project: { id: "550e8400-e29b-41d4-a716-446655440012" } }
+  ])
+  insight_insertMany(data: [
+    { id_expr: "uuidV4()", question: "Why?", answer: "Because", project: { id: "550e8400-e29b-41d4-a716-446655440010" }, createdBy: { id: "550e8400-e29b-41d4-a716-446655440000" } },
+    { id_expr: "uuidV4()", question: "How?", answer: "Slowly", project: { id: "550e8400-e29b-41d4-a716-446655440011" }, createdBy: { id: "550e8400-e29b-41d4-a716-446655440001" } },
+    { id_expr: "uuidV4()", question: "When?", answer: "Now", project: { id: "550e8400-e29b-41d4-a716-446655440012" }, createdBy: { id: "550e8400-e29b-41d4-a716-446655440002" } }
+  ])
+  projectMember_insertMany(data: [
+    { projectId: "550e8400-e29b-41d4-a716-446655440010", userId: "550e8400-e29b-41d4-a716-446655440000", role: "Admin" },
+    { projectId: "550e8400-e29b-41d4-a716-446655440011", userId: "550e8400-e29b-41d4-a716-446655440001", role: "Editor" },
+    { projectId: "550e8400-e29b-41d4-a716-446655440012", userId: "550e8400-e29b-41d4-a716-446655440002", role: "Viewer" }
+  ])
+}

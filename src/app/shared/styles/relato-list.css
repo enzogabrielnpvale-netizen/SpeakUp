@@ -1,0 +1,11 @@
+.lista-relatos { display: flex; flex-direction: column; gap: 12px; }
+.relato-item { display: flex; align-items: flex-start; justify-content: space-between; padding: 18px 20px; gap: 16px; }
+.relato-badges { display: flex; gap: 8px; margin-bottom: 8px; flex-wrap: wrap; }
+.relato-item h3 { font-size: 15px; font-weight: 600; color: var(--su-gray-900); margin-bottom: 4px; }
+.relato-data { font-size: 12.5px; color: var(--su-gray-500); }
+.relato-status-icone { flex-shrink: 0; }
+.status-blue { color: var(--su-info-600); }
+.status-green { color: var(--su-success-600); }
+.status-purple { color: var(--su-purple-600); }
+.status-gray { color: var(--su-gray-500); }
+.estado-vazio { padding: 40px; text-align: center; color: var(--su-gray-500); }

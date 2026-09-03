@@ -1,0 +1,95 @@
+<header class="topo">
+  <div class="su-container topo-inner">
+    <app-logo />
+    <div class="topo-acoes">
+      <a routerLink="/login" class="su-btn su-btn-ghost topo-entrar">Entrar</a>
+      <a routerLink="/registrar" class="su-btn su-btn-primary">Cadastrar</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="su-container hero-inner">
+    <h1>Sua voz importa.<br /><span>Fale com segurança.</span></h1>
+    <p>
+      SpeakUp é a plataforma que conecta alunos e gestão escolar, promovendo
+      um ambiente mais seguro, transparente e colaborativo.
+    </p>
+    <div class="hero-acoes">
+      <a routerLink="/login" class="su-btn su-btn-primary">Acessar como Aluno</a>
+      <a routerLink="/login-gestao" class="su-btn su-btn-outline hero-btn-gestao">Acessar como Gestão</a>
+    </div>
+  </div>
+</section>
+
+<section class="secao">
+  <div class="su-container">
+    <h2 class="titulo-secao">Por que usar o SpeakUp?</h2>
+    <div class="grid-3">
+      @for (b of beneficios; track b.titulo) {
+        <div class="su-card beneficio-card">
+          <span class="beneficio-icone">
+            @switch (b.icone) {
+              @case ('seguranca') {
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>
+              }
+              @case ('tempo') {
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18" /><polyline points="17 6 23 6 23 12" /></svg>
+              }
+              @case ('gestao') {
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg>
+              }
+            }
+          </span>
+          <h3>{{ b.titulo }}</h3>
+          <p>{{ b.descricao }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="secao secao-clara">
+  <div class="su-container">
+    <h2 class="titulo-secao">Como funciona</h2>
+    <div class="grid-4">
+      @for (p of passos; track p.numero) {
+        <div class="passo">
+          <span class="passo-numero">{{ p.numero }}</span>
+          <h4>{{ p.titulo }}</h4>
+          <p>{{ p.descricao }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="secao">
+  <div class="su-container">
+    <h2 class="titulo-secao">Categorias de Relatos</h2>
+    <div class="grid-3 grid-categorias">
+      @for (c of categorias; track c) {
+        <div class="categoria-pill">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" /><polyline points="22 4 12 14.01 9 11.01" /></svg>
+          {{ c }}
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="su-container cta-inner">
+    <span class="cta-tag">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>
+      100% Seguro e Confidencial
+    </span>
+    <h2>Pronto para fazer a diferença?</h2>
+    <p>Junte-se a centenas de alunos que já utilizam o SpeakUp para criar um ambiente escolar melhor.</p>
+    <a routerLink="/registrar" class="su-btn su-btn-primary cta-btn">Começar Agora</a>
+  </div>
+</section>
+
+<footer class="rodape">
+  <div class="su-container">© 2026 SpeakUp. Todos os direitos reservados.</div>
+</footer>

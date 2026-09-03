@@ -1,0 +1,28 @@
+@import '../../../shared/styles/relato-list.css';
+
+.pagina { padding: 32px 24px 60px; }
+.pagina h1 { font-size: 22px; font-weight: 700; color: var(--su-gray-900); }
+.subtitulo { color: var(--su-gray-500); font-size: 14px; margin-top: 4px; margin-bottom: 26px; }
+
+.grid-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
+
+.grid-graficos { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+.bloco { padding: 20px 22px; }
+.bloco h2 { font-size: 14.5px; font-weight: 700; color: var(--su-gray-900); margin-bottom: 16px; }
+
+.grid-acoes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 30px; }
+.acao-card { display: flex; align-items: center; gap: 12px; padding: 18px; border-radius: var(--su-radius-md); border: 1px solid var(--su-gray-200); background: #fff; }
+.acao-card strong { display: block; font-size: 14px; color: var(--su-gray-900); }
+.acao-card small { display: block; font-size: 12px; color: var(--su-gray-500); margin-top: 2px; }
+.acao-icone { width: 36px; height: 36px; border-radius: 9px; background: var(--su-blue-100); color: var(--su-blue-600); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+
+.cabecalho-lista { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+.titulo-secao { font-size: 15px; font-weight: 700; color: var(--su-gray-900); }
+.link-azul { color: var(--su-blue-600); font-size: 13.5px; font-weight: 600; }
+
+.relato-info-extra { font-size: 12.5px; color: var(--su-gray-500); }
+.icone-alerta { color: var(--su-danger-600); flex-shrink: 0; }
+
+@media (max-width: 960px) {
+  .grid-stats, .grid-graficos, .grid-acoes { grid-template-columns: 1fr 1fr; }
+}

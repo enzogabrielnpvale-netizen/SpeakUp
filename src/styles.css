@@ -1,0 +1,259 @@
+/* ==========================================================================
+   SpeakUp — Design Tokens & Estilos Globais
+   ========================================================================== */
+
+:root {
+  /* Paleta primária (navy / azul institucional) */
+  --su-navy-900: #0a3252;
+  --su-navy-800: #0d3b63;
+  --su-navy-700: #0f4573;
+
+  --su-blue-600: #1785c9;
+  --su-blue-500: #2aa7e0;
+  --su-blue-400: #4fb3e8;
+  --su-blue-100: #e6f4fc;
+  --su-blue-50: #f2f9fd;
+
+  /* Neutros */
+  --su-gray-50: #f5f8fb;
+  --su-gray-100: #eef2f7;
+  --su-gray-200: #e2e8f0;
+  --su-gray-300: #cbd5e1;
+  --su-gray-500: #64748b;
+  --su-gray-600: #475569;
+  --su-gray-700: #334155;
+  --su-gray-900: #0f2438;
+
+  /* Semânticas */
+  --su-success-600: #16a34a;
+  --su-success-100: #dcfce7;
+  --su-warning-600: #d97706;
+  --su-warning-100: #fef3c7;
+  --su-danger-600: #dc2626;
+  --su-danger-100: #fee2e2;
+  --su-info-600: #2563eb;
+  --su-info-100: #dbeafe;
+  --su-purple-600: #7c3aed;
+  --su-purple-100: #ede9fe;
+  --su-pink-600: #db2777;
+  --su-pink-100: #fce7f3;
+
+  --su-radius-sm: 6px;
+  --su-radius-md: 10px;
+  --su-radius-lg: 14px;
+  --su-shadow-sm: 0 1px 2px rgba(15, 36, 56, 0.06);
+  --su-shadow-md: 0 4px 12px rgba(15, 36, 56, 0.08);
+
+  --su-font: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  font-family: var(--su-font);
+  color: var(--su-gray-900);
+  background: var(--su-gray-50);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+input, select, textarea, button {
+  font-family: inherit;
+  font-size: 14px;
+}
+
+::selection {
+  background: var(--su-blue-100);
+}
+
+/* ---- Utilitários compartilhados ---- */
+
+.su-container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.su-card {
+  background: #fff;
+  border: 1px solid var(--su-gray-200);
+  border-radius: var(--su-radius-md);
+  box-shadow: var(--su-shadow-sm);
+}
+
+.su-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: var(--su-radius-sm);
+  border: 1px solid transparent;
+  padding: 10px 20px;
+  font-weight: 600;
+  font-size: 14px;
+  transition: background 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
+  white-space: nowrap;
+}
+
+.su-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.su-btn-primary {
+  background: var(--su-blue-600);
+  color: #fff;
+}
+.su-btn-primary:hover:not(:disabled) {
+  background: var(--su-blue-500);
+}
+
+.su-btn-dark {
+  background: var(--su-navy-800);
+  color: #fff;
+}
+.su-btn-dark:hover:not(:disabled) {
+  background: var(--su-navy-700);
+}
+
+.su-btn-outline {
+  background: #fff;
+  color: var(--su-gray-700);
+  border-color: var(--su-gray-300);
+}
+.su-btn-outline:hover:not(:disabled) {
+  background: var(--su-gray-50);
+}
+
+.su-btn-ghost {
+  background: transparent;
+  color: var(--su-blue-600);
+}
+
+.su-btn-block {
+  width: 100%;
+}
+
+.su-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+
+.su-field label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--su-gray-700);
+}
+
+.su-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.su-input-wrap svg {
+  position: absolute;
+  left: 14px;
+  color: var(--su-gray-500);
+  pointer-events: none;
+}
+
+.su-input-wrap .su-toggle-visibility {
+  position: absolute;
+  right: 12px;
+  left: auto;
+  background: transparent;
+  border: none;
+  padding: 4px;
+  pointer-events: auto;
+  display: flex;
+}
+
+.su-input {
+  width: 100%;
+  padding: 11px 14px 11px 40px;
+  border: 1px solid var(--su-gray-200);
+  border-radius: var(--su-radius-sm);
+  background: #fff;
+  color: var(--su-gray-900);
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.su-input:focus {
+  border-color: var(--su-blue-500);
+  box-shadow: 0 0 0 3px var(--su-blue-100);
+}
+
+.su-input.su-input-plain {
+  padding-left: 14px;
+}
+
+.su-input-error {
+  border-color: var(--su-danger-600) !important;
+}
+
+.su-error-text {
+  color: var(--su-danger-600);
+  font-size: 12px;
+}
+
+textarea.su-input {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.su-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.su-scroll-x {
+  overflow-x: auto;
+}
+
+/* ---- Variantes de badge (categoria / status / prioridade) ---- */
+.su-badge-blue    { background: var(--su-info-100);    color: var(--su-info-600); }
+.su-badge-green   { background: var(--su-success-100); color: var(--su-success-600); }
+.su-badge-red     { background: var(--su-danger-100);  color: var(--su-danger-600); }
+.su-badge-amber   { background: var(--su-warning-100); color: var(--su-warning-600); }
+.su-badge-purple  { background: var(--su-purple-100);  color: var(--su-purple-600); }
+.su-badge-pink    { background: var(--su-pink-100);    color: var(--su-pink-600); }
+.su-badge-gray    { background: var(--su-gray-100);    color: var(--su-gray-600); }
+.su-badge-teal    { background: #d7f5f0; color: #0f9488; }
+
+/* ---- Cabeçalho simples reutilizado em páginas internas (voltar / marca) ---- */
+.topo-simples { background: #fff; border-bottom: 1px solid var(--su-gray-200); }
+.topo-simples-inner { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+.topo-simples .marca { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 17px; color: var(--su-gray-900); }
+.topo-simples .marca-icone { width: 30px; height: 30px; border-radius: 8px; background: var(--su-blue-600); display: flex; align-items: center; justify-content: center; }
+.topo-simples .link-voltar { display: inline-flex; align-items: center; gap: 6px; font-size: 13.5px; font-weight: 500; color: var(--su-blue-600); }

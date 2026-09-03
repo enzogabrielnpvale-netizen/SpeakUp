@@ -1,0 +1,82 @@
+<header class="topo-simples">
+  <div class="su-container topo-simples-inner">
+    <span class="marca"><span class="marca-icone">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></svg>
+    </span>SpeakUp</span>
+    <a routerLink="/aluno/dashboard" class="link-voltar">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12" /><polyline points="12 19 5 12 12 5" /></svg>
+      Voltar ao Dashboard
+    </a>
+  </div>
+</header>
+
+<main class="su-container pagina">
+  <h1>Novo Relato</h1>
+  <p class="subtitulo">Preencha as informações abaixo para criar seu relato</p>
+
+  <form [formGroup]="form" (ngSubmit)="enviar()" novalidate>
+    <div class="su-card bloco">
+      <label class="bloco-titulo" for="titulo">Título do Relato</label>
+      <input id="titulo" type="text" class="su-input su-input-plain" placeholder="Descreva brevemente a situação" formControlName="titulo"
+        [class.su-input-error]="f.titulo.invalid && f.titulo.touched" />
+      @if (f.titulo.invalid && f.titulo.touched) {
+        <span class="su-error-text">Informe um título com pelo menos 4 caracteres.</span>
+      }
+    </div>
+
+    <div class="su-card bloco">
+      <span class="bloco-titulo">Categoria</span>
+      <div class="grid-categoria">
+        @for (c of categorias; track c.valor) {
+          <button type="button" class="categoria-opcao" [class.selecionada]="f.categoria.value === c.valor" (click)="selecionarCategoria(c.valor)">
+            <span class="radio" [class.marcado]="f.categoria.value === c.valor"></span>
+            <span>
+              <strong>{{ c.valor }}</strong>
+              <small>{{ c.descricao }}</small>
+            </span>
+          </button>
+        }
+      </div>
+      @if (f.categoria.invalid && f.categoria.touched) {
+        <span class="su-error-text">Selecione uma categoria.</span>
+      }
+    </div>
+
+    <div class="su-card bloco">
+      <label class="bloco-titulo" for="descricao">Descrição Detalhada</label>
+      <textarea id="descricao" class="su-input su-input-plain" rows="5"
+        placeholder="Descreva o que aconteceu com o máximo de detalhes possível. Quanto mais informações você fornecer, melhor a gestão poderá ajudá-lo."
+        formControlName="descricao" [class.su-input-error]="f.descricao.invalid && f.descricao.touched"></textarea>
+      @if (f.descricao.invalid && f.descricao.touched) {
+        <span class="su-error-text">Descreva a situação com pelo menos 20 caracteres.</span>
+      }
+    </div>
+
+    <div class="su-card bloco">
+      <span class="bloco-titulo">Anexar Imagens (Opcional)</span>
+      <label class="dropzone">
+        <input type="file" accept="image/png,image/jpeg" multiple hidden (change)="aoSelecionarArquivos($event)" />
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="17 8 12 3 7 8" /><line x1="12" y1="3" x2="12" y2="15" /></svg>
+        <span>Clique para adicionar imagens</span>
+        <small>PNG, JPG até 5MB</small>
+      </label>
+
+      @if (arquivos().length) {
+        <ul class="lista-arquivos">
+          @for (nome of arquivos(); track nome) {
+            <li>{{ nome }} <button type="button" (click)="removerArquivo(nome)" aria-label="Remover arquivo">×</button></li>
+          }
+        </ul>
+      }
+    </div>
+
+    <div class="alerta-privacidade">
+      <strong>Privacidade:</strong> Seu relato será enviado de forma confidencial à gestão escolar. Apenas pessoas autorizadas terão acesso às informações.
+    </div>
+
+    <div class="acoes-form">
+      <button type="submit" class="su-btn su-btn-primary" [disabled]="enviando()">Enviar Relato</button>
+      <button type="button" class="su-btn su-btn-outline" (click)="cancelar()">Cancelar</button>
+    </div>
+  </form>
+</main>

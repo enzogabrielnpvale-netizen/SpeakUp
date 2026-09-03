@@ -1,0 +1,84 @@
+<header class="topo-simples">
+  <div class="su-container topo-simples-inner">
+    <span class="marca"><span class="marca-icone">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></svg>
+    </span>SpeakUp</span>
+    <a routerLink="/gestao/dashboard" class="link-voltar">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12" /><polyline points="12 19 5 12 12 5" /></svg>
+      Voltar ao Dashboard
+    </a>
+  </div>
+</header>
+
+<main class="su-container pagina">
+  <div class="cabecalho">
+    <div>
+      <h1>Gerenciar Relatos</h1>
+      <p class="subtitulo">Visualize, filtre e responda aos relatos dos alunos</p>
+    </div>
+    <div class="cabecalho-acoes">
+      <button type="button" class="su-btn su-btn-outline">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" /></svg>
+        Filtros Avançados
+      </button>
+      <button type="button" class="su-btn su-btn-primary" (click)="exportar()">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" /></svg>
+        Exportar
+      </button>
+    </div>
+  </div>
+
+  <div class="su-card filtros">
+    <div class="su-input-wrap">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg>
+      <input type="text" class="su-input" placeholder="Buscar por título ou aluno..." [value]="busca()" (input)="busca.set($any($event.target).value)" />
+    </div>
+    <select class="su-input su-input-plain" [value]="statusFiltro()" (change)="statusFiltro.set($any($event.target).value)">
+      <option value="todos">Todos os Status</option>
+      @for (s of statusDisponiveis; track s) { <option [value]="s">{{ s }}</option> }
+    </select>
+    <select class="su-input su-input-plain" [value]="prioridadeFiltro()" (change)="prioridadeFiltro.set($any($event.target).value)">
+      <option value="todas">Todas as Prioridades</option>
+      @for (p of prioridadesDisponiveis; track p) { <option [value]="p">{{ p }}</option> }
+    </select>
+  </div>
+
+  <div class="grid-stats">
+    <div class="su-card mini-stat"><strong>{{ total() }}</strong><span>Total</span></div>
+    <div class="su-card mini-stat"><strong>{{ recebidos() }}</strong><span>Recebidos</span></div>
+    <div class="su-card mini-stat"><strong class="cor-blue">{{ emAnalise() }}</strong><span>Em Análise</span></div>
+    <div class="su-card mini-stat"><strong class="cor-blue">{{ emAndamento() }}</strong><span>Em Andamento</span></div>
+    <div class="su-card mini-stat"><strong class="cor-green">{{ resolvidos() }}</strong><span>Resolvidos</span></div>
+  </div>
+
+  <div class="su-card su-scroll-x tabela-wrap">
+    <table class="tabela">
+      <thead>
+        <tr>
+          <th>ID</th><th>Aluno</th><th>Título</th><th>Categoria</th><th>Prioridade</th><th>Status</th><th>Data</th><th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (r of filtrados(); track r.id) {
+          <tr>
+            <td>
+              #{{ r.id }}
+              @if (r.prioridade === 'Urgente') {
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icone-alerta"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" /><line x1="12" y1="9" x2="12" y2="13" /><line x1="12" y1="17" x2="12.01" y2="17" /></svg>
+              }
+            </td>
+            <td>{{ r.alunoNome }}</td>
+            <td class="celula-titulo">{{ r.titulo }}</td>
+            <td>{{ r.categoria }}</td>
+            <td><span class="texto-prioridade" [class]="'prio-' + variantePrioridade(r.prioridade)">{{ r.prioridade }}</span></td>
+            <td><app-badge [variante]="varianteStatus(r.status)">{{ r.status }}</app-badge></td>
+            <td>{{ r.criadoEm | dataBr }}</td>
+            <td><a [routerLink]="['/gestao/relatos', r.id]" class="link-ver">Ver</a></td>
+          </tr>
+        } @empty {
+          <tr><td colspan="8" class="estado-vazio">Nenhum relato encontrado.</td></tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</main>
