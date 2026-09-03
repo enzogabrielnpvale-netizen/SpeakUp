@@ -1,5 +1,7 @@
 import { Injectable, computed, signal } from '@angular/core';
+import { onValue, ref, set } from 'firebase/database';
 import { CategoriaRelato, PrioridadeRelato, Relato, StatusRelato } from '../models/relato.model';
+import { database } from '../../firebase';
 
 function isoAtras(diasAtras: number, hora = '10:00:00'): string {
   const d = new Date();
@@ -172,6 +174,15 @@ export class RelatosService {
   private readonly _relatos = signal<Relato[]>(DADOS_INICIAIS);
   readonly relatos = this._relatos.asReadonly();
 
+  constructor() {
+    onValue(ref(database, 'relatos'), (snapshot) => {
+      const dados = snapshot.val() as Record<string, Relato> | null;
+      if (dados) {
+        this._relatos.set(Object.values(dados).sort((a, b) => b.id - a.id));
+      }
+    });
+  }
+
   readonly total = computed(() => this._relatos().length);
 
   relatosPorAluno(alunoId: number) {
@@ -211,6 +222,7 @@ export class RelatosService {
       linhaDoTempo: [{ titulo: 'Relato criado', data: new Date().toISOString() }],
     };
     this._relatos.update((lista) => [novo, ...lista]);
+    void this.persistir();
     return novo;
   }
 
@@ -229,11 +241,17 @@ export class RelatosService {
           : r,
       ),
     );
+    void this.persistir();
   }
 
   atualizarStatus(id: number, status: StatusRelato): void {
     this._relatos.update((lista) =>
       lista.map((r) => (r.id === id ? { ...r, status, atualizadoEm: new Date().toISOString() } : r)),
     );
+    void this.persistir();
+  }
+
+  private async persistir(): Promise<void> {
+    await set(ref(database, 'relatos'), Object.fromEntries(this._relatos().map((relato) => [relato.id, relato])));
   }
 }

@@ -1,5 +1,7 @@
 import { Injectable, computed, signal } from '@angular/core';
+import { onValue, ref, set } from 'firebase/database';
 import { SerieEscolar, Usuario } from '../models/usuario.model';
+import { database } from '../../firebase';
 
 const DADOS_INICIAIS: Usuario[] = [
   { id: 1, nome: 'João Silva', email: 'joao.silva@email.com', matricula: '12345', serie: '9° Ano', status: 'Ativo', ultimoAcesso: '2026-06-02' },
@@ -14,6 +16,15 @@ export class UsuariosService {
   private readonly _usuarios = signal<Usuario[]>(DADOS_INICIAIS);
   readonly usuarios = this._usuarios.asReadonly();
 
+  constructor() {
+    onValue(ref(database, 'usuarios'), (snapshot) => {
+      const dados = snapshot.val() as Record<string, Usuario> | null;
+      if (dados) {
+        this._usuarios.set(Object.values(dados).sort((a, b) => a.id - b.id));
+      }
+    });
+  }
+
   readonly total = computed(() => this._usuarios().length);
   readonly ativos = computed(() => this._usuarios().filter((u) => u.status === 'Ativo').length);
   readonly inativos = computed(() => this._usuarios().filter((u) => u.status === 'Inativo').length);
@@ -26,6 +37,7 @@ export class UsuariosService {
       ultimoAcesso: new Date().toISOString().slice(0, 10),
     };
     this._usuarios.update((lista) => [...lista, novo]);
+    void this.persistir();
     return novo;
   }
 
@@ -33,9 +45,15 @@ export class UsuariosService {
     this._usuarios.update((lista) =>
       lista.map((u) => (u.id === id ? { ...u, status: u.status === 'Ativo' ? 'Inativo' : 'Ativo' } : u)),
     );
+    void this.persistir();
   }
 
   remover(id: number): void {
     this._usuarios.update((lista) => lista.filter((u) => u.id !== id));
+    void this.persistir();
+  }
+
+  private async persistir(): Promise<void> {
+    await set(ref(database, 'usuarios'), Object.fromEntries(this._usuarios().map((usuario) => [usuario.id, usuario])));
   }
 }
