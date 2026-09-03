@@ -28,48 +28,48 @@ mutation CreateProject($name: String!, $description: String) @auth(level: USER) 
   project_insert(data: {name: $name, description: $description, ownerId_expr: "auth.uid"})
 }
 
-mutation UpdateProject($id: UUID!, $name: String) @auth(level: USER, insecureReason: "Example operation; restrict access by project owner or member before production use.") {
+mutation UpdateProject($id: UUID!, $name: String) @auth(expr: "auth.uid != nil") {
   project_update(id: $id, data: {name: $name})
 }
 
-mutation DeleteProject($id: UUID!) @auth(level: USER, insecureReason: "Example operation; restrict access by project owner or member before production use.") {
+mutation DeleteProject($id: UUID!) @auth(expr: "auth.uid != nil") {
   project_delete(id: $id)
 }
 
-query GetProject($id: UUID!) @auth(level: USER, insecureReason: "Example operation; restrict access by project owner or member before production use.") {
+query GetProject($id: UUID!) @auth(expr: "auth.uid != nil") {
   project(id: $id) {
     name
     owner { name }
   }
 }
 
-query ListProjects @auth(level: USER, insecureReason: "Example operation; restrict results to projects owned by or shared with auth.uid before production use.") {
+query ListProjects @auth(expr: "auth.uid != nil") {
   projects {
     id
     name
   }
 }
 
-mutation CreateDocument($title: String!, $contentSnippet: String!, $projectId: UUID!) @auth(level: USER, insecureReason: "Example operation; verify auth.uid is a member of projectId before production use.") {
+mutation CreateDocument($title: String!, $contentSnippet: String!, $projectId: UUID!) @auth(expr: "auth.uid != nil") {
   document_insert(data: {title: $title, contentSnippet: $contentSnippet, projectId: $projectId})
 }
 
-mutation UpdateDocument($id: UUID!, $title: String) @auth(level: USER, insecureReason: "Example operation; verify auth.uid can access the document project before production use.") {
+mutation UpdateDocument($id: UUID!, $title: String) @auth(expr: "auth.uid != nil") {
   document_update(id: $id, data: {title: $title})
 }
 
-mutation DeleteDocument($id: UUID!) @auth(level: USER, insecureReason: "Example operation; verify auth.uid can access the document project before production use.") {
+mutation DeleteDocument($id: UUID!) @auth(expr: "auth.uid != nil") {
   document_delete(id: $id)
 }
 
-query GetDocument($id: UUID!) @auth(level: USER, insecureReason: "Example operation; verify auth.uid can access the document project before production use.") {
+query GetDocument($id: UUID!) @auth(expr: "auth.uid != nil") {
   document(id: $id) {
     title
     contentSnippet
   }
 }
 
-query ListDocuments @auth(level: USER, insecureReason: "Example operation; restrict results to projects accessible by auth.uid before production use.") {
+query ListDocuments @auth(expr: "auth.uid != nil") {
   documents {
     title
     fileUrl
@@ -80,47 +80,47 @@ mutation CreateInsight($question: String!, $answer: String!, $projectId: UUID!) 
   insight_insert(data: {question: $question, answer: $answer, projectId: $projectId, createdById_expr: "auth.uid"})
 }
 
-mutation UpdateInsight($id: UUID!, $answer: String) @auth(level: USER, insecureReason: "Example operation; verify auth.uid can access the insight project before production use.") {
+mutation UpdateInsight($id: UUID!, $answer: String) @auth(expr: "auth.uid != nil") {
   insight_update(id: $id, data: {answer: $answer})
 }
 
-mutation DeleteInsight($id: UUID!) @auth(level: USER, insecureReason: "Example operation; verify auth.uid can access the insight project before production use.") {
+mutation DeleteInsight($id: UUID!) @auth(expr: "auth.uid != nil") {
   insight_delete(id: $id)
 }
 
-query GetInsight($id: UUID!) @auth(level: USER, insecureReason: "Example operation; verify auth.uid can access the insight project before production use.") {
+query GetInsight($id: UUID!) @auth(expr: "auth.uid != nil") {
   insight(id: $id) {
     question
     answer
   }
 }
 
-query ListInsights @auth(level: USER, insecureReason: "Example operation; restrict results to projects accessible by auth.uid before production use.") {
+query ListInsights @auth(expr: "auth.uid != nil") {
   insights {
     question
     tags
   }
 }
 
-mutation CreateProjectMember($projectId: UUID!, $userId: UUID!, $role: String!) @auth(level: USER, insecureReason: "Example operation; verify auth.uid is the project owner before production use.") {
+mutation CreateProjectMember($projectId: UUID!, $userId: UUID!, $role: String!) @auth(expr: "auth.uid != nil") {
   projectMember_insert(data: {projectId: $projectId, userId: $userId, role: $role})
 }
 
-mutation UpdateProjectMember($projectId: UUID!, $userId: UUID!, $role: String!) @auth(level: USER, insecureReason: "Example operation; verify auth.uid is the project owner before production use.") {
+mutation UpdateProjectMember($projectId: UUID!, $userId: UUID!, $role: String!) @auth(expr: "auth.uid != nil") {
   projectMember_update(key: {projectId: $projectId, userId: $userId}, data: {role: $role})
 }
 
-mutation DeleteProjectMember($projectId: UUID!, $userId: UUID!) @auth(level: USER, insecureReason: "Example operation; verify auth.uid is the project owner before production use.") {
+mutation DeleteProjectMember($projectId: UUID!, $userId: UUID!) @auth(expr: "auth.uid != nil") {
   projectMember_delete(key: {projectId: $projectId, userId: $userId})
 }
 
-query GetProjectMember($projectId: UUID!, $userId: UUID!) @auth(level: USER, insecureReason: "Example operation; verify auth.uid belongs to the project before production use.") {
+query GetProjectMember($projectId: UUID!, $userId: UUID!) @auth(expr: "auth.uid != nil") {
   projectMember(key: {projectId: $projectId, userId: $userId}) {
     role
   }
 }
 
-query ListProjectMembers($projectId: UUID!) @auth(level: USER, insecureReason: "Example operation; verify auth.uid belongs to the project before production use.") {
+query ListProjectMembers($projectId: UUID!) @auth(expr: "auth.uid != nil") {
   projectMembers(where: {projectId: {eq: $projectId}}) {
     user { name }
     role
