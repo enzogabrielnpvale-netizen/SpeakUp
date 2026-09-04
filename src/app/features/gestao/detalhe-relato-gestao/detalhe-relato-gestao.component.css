@@ -1,5 +1,21 @@
 @import '../../../shared/styles/relato-detalhe.css';
 
-.confirmacao { display: inline-block; margin-left: 14px; color: var(--su-success-600); font-size: 13px; font-weight: 600; }
-.su-field { margin-bottom: 16px; }
-.su-field label { display: block; font-size: 13px; font-weight: 600; color: var(--su-gray-700); margin-bottom: 6px; }
+.confirmacao {
+    display: inline-block;
+    margin-left: 14px;
+    color: var(--su-success-600);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.su-field {
+    margin-bottom: 16px;
+}
+
+.su-field label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--su-gray-700);
+    margin-bottom: 6px;
+}

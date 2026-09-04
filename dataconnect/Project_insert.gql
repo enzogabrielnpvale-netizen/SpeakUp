@@ -1,0 +1,7 @@
+# This is a file for you to write an un-named mutation. 
+# Only one un-named mutation is allowed per file.
+mutation {
+  project_insert(
+    data: {id: "11111111222233334444555555555555", ownerId: "11111111222233334444555555555555", createdAt: "2026-09-03T22:29:12.940Z", description: "", name: ""}
+  )
+}
