@@ -1,81 +1,139 @@
-# SpeakUp — Plataforma de Relatos Escolares
+# SpeakUp
 
-Aplicação Angular (standalone components, Angular 18) que replica o design do
-protótipo Figma **SpeakUp UI/UX Design**, cobrindo a jornada completa de aluno
-e da gestão escolar.
+## ESTA NÃO É A VERSÃO FINAL 
 
-> ⚠️ Este código foi escrito manualmente neste ambiente sem acesso à internet,
-> portanto **não foi possível rodar `npm install` / `ng build` aqui** para
-> compilar e validar o projeto. A estrutura segue rigorosamente as convenções
-> do Angular 18 (standalone components, signals, novo control flow
-> `@if`/`@for`/`@switch`), mas rode os passos abaixo no seu ambiente para
-> testar e reportar qualquer ajuste necessário.
 
-## Como rodar
+## Plataforma de relatos escolares
 
-```bash
-cd speakup
-npm install
-npm start        # ng serve — http://localhost:4200
-```
+O SpeakUp é uma solução web desenvolvida para facilitar o registro, acompanhamento e gestão de ocorrências, denúncias e relatos escolares. A plataforma foi pensada para conectar estudantes e equipe de gestão em um ambiente simples, acessível e organizado, promovendo comunicação mais eficiente e suporte mais ágil às demandas da comunidade escolar.
 
-Build de produção:
+A proposta central do projeto é transformar a forma como os relatos são enviados e tratados, oferecendo um fluxo estruturado para:
 
-```bash
-npm run build
-```
+- registrar situações e ocorrências;
+- acompanhar o status de cada relato;
+- dar visibilidade para a gestão escolar;
+- melhorar a organização e a tomada de decisão institucional.
+
+---
+
+## Objetivo do projeto
+
+O objetivo principal do SpeakUp é criar uma interface funcional e visualmente clara para o envio e gerenciamento de relatos dentro do ambiente escolar. A aplicação foi desenvolvida como uma solução de experiência digital para apoiar a comunicação entre alunos e gestão, com foco em:
+
+- acessibilidade;
+- organização das informações;
+- agilidade no atendimento;
+- segurança e clareza no processo;
+- uso prático no cotidiano escolar.
+
+A plataforma simula uma jornada completa de uso, contemplando tanto o aluno quanto a gestão, com fluxos dedicados para cadastro, autenticação, registro de ocorrência e acompanhamento administrativo.
+
+---
+
+## Problema abordado
+
+Em muitos contextos escolares, a comunicação de problemas, denúncias ou situações que necessitam de atenção pode ser fragmentada, pouco organizada ou difícil de acompanhar. Quando não existe um canal claro e centralizado, há risco de:
+
+- relatos serem perdidos;
+- ações demorarem a ser tomadas;
+- alunos sentirem dificuldade para comunicar situações importantes;
+- a gestão ter pouca visibilidade sobre pendências e padrões.
+
+O SpeakUp busca resolver esse problema por meio de uma plataforma digital que estrutura o processo e facilita a gestão de informações.
+
+---
+
+## Funcionalidades principais
+
+### Para alunos
+- cadastro e autenticação;
+- envio de novo relato;
+- histórico de ocorrências;
+- visualização detalhada de cada relato;
+- acompanhamento do status da situação informada.
+
+### Para gestão escolar
+- painel administrativo;
+- visualização geral de relatos;
+- gerenciamento de ocorrências;
+- análise por status e prioridade;
+- acompanhamento de usuários;
+- relatórios e indicadores estatísticos.
+
+### Experiência de uso
+- interface moderna e responsiva;
+- navegação por rotas organizadas;
+- layout visual inspirado em identidade institucional;
+- componentes reutilizáveis para manter consistência visual.
+
+---
+
+## Tecnologias utilizadas
+
+A aplicação foi desenvolvida com Angular 18, utilizando uma arquitetura moderna para facilitar manutenção, escalabilidade e organização do código.
+
+### Stack principal
+- Angular 18
+- TypeScript
+- HTML5
+- CSS3
+- Firebase
+- Angular Router
+- Signals do Angular
+- Standalone Components
+
+### Arquitetura adotada
+- separação entre camada de domínio, serviços e interfaces;
+- componentes independentes e reutilizáveis;
+- estrutura orientada por features para organização por área de negócio;
+- roteamento com controle de acesso por perfil;
+- dados simulados para representar o fluxo funcional da aplicação.
+
+---
 
 ## Estrutura do projeto
 
+```text
+src/
+├── app/
+│   ├── core/
+│   │   ├── models/
+│   │   ├── services/
+│   │   └── guards/
+│   ├── shared/
+│   │   ├── components/
+│   │   ├── pipes/
+│   │   ├── styles/
+│   │   ├── data/
+│   │   └── utils/
+│   ├── features/
+│   │   ├── landing/
+│   │   ├── auth/
+│   │   ├── aluno/
+│   │   └── gestao/
+│   ├── app.routes.ts
+│   ├── app.config.ts
+│   └── firebase.ts
+├── environments/
+└── styles.css
 ```
-src/app/
-├── core/                     # Camada de domínio, sem UI
-│   ├── models/                # Interfaces (Relato, Usuario, Auth)
-│   ├── services/               # AuthService, RelatosService, UsuariosService (signals)
-│   └── guards/                  # authGuard (protege rotas por papel aluno/gestão)
-├── shared/                   # Reutilizável entre features
-│   ├── components/            # Navbar, Logo, Badge, StatCard, gráficos SVG
-│   ├── pipes/                   # DataBrPipe (datas em pt-BR)
-│   ├── styles/                  # CSS compartilhado (tabelas, listas de relato, detalhe)
-│   ├── data/                    # Dados mockados de analytics/estatísticas
-│   └── utils/                   # Mapeamento de cores por categoria/status/prioridade
-├── features/
-│   ├── landing/                # Home pública
-│   ├── auth/                    # Login aluno, login gestão, cadastro
-│   ├── aluno/                    # Dashboard, novo relato, histórico, detalhe
-│   └── gestao/                   # Dashboard admin, relatos, usuários, estatísticas
-├── app.routes.ts               # Rotas com lazy loading (loadComponent) e guards
-└── app.config.ts               # Providers da aplicação
-```
 
-## Decisões técnicas
+---
 
-- **Standalone components + Signals**: sem NgModules; estado reativo via
-  `signal`/`computed`, sem necessidade de `ChangeDetectorRef` manual.
-- **Mock de backend**: `AuthService`, `RelatosService` e `UsuariosService`
-  simulam uma API com dados em memória (persistindo apenas a sessão de login
-  no `localStorage`). Para produção, troque os métodos internos por chamadas
-  `HttpClient` mantendo a mesma superfície pública dos serviços.
-- **Gráficos sem dependências externas**: `BarChartComponent`,
-  `LineChartComponent` e `PieChartComponent` são SVG puro — evita acoplar o
-  projeto a uma lib de charts específica e facilita customização visual.
-- **Design tokens** centralizados em `src/styles.css` (`:root` com variáveis
-  CSS) espelhando a paleta do Figma (navy institucional + azul de destaque).
-- **Roteamento com lazy loading** (`loadComponent`) por tela, reduzindo o
-  bundle inicial.
-- **Guards por papel**: `authGuard('aluno')` / `authGuard('gestao')` barram
-  acesso cruzado entre os dois portais.
+## Fluxos principais
 
-## Contas de acesso (mock)
+### 1. Fluxo do aluno
+O aluno acessa a plataforma, realiza login ou cadastro, envia um relato com detalhes da situação e acompanha o status da solicitação no painel pessoal.
 
-Não há validação de credenciais reais — qualquer e-mail/senha (mín. 6
-caracteres) autentica:
+### 2. Fluxo da gestão
+A equipe da gestão acessa o painel administrativo, analisa os relatos recebidos, organiza prioritários, responde às ocorrências e acompanha dados estatísticos do processo.
 
-- **Aluno**: tela `/login` → entra como "João Silva"
-- **Gestão**: tela `/login-gestao` → entra como "Maria Santos"
-- **Cadastro**: tela `/registrar` cria e autentica um novo aluno
+### 3. Fluxo de autenticação
+A solução contempla diferentes perfis de usuário, com acesso específico conforme o papel dentro da aplicação, proporcionando maior segurança e organização na navegação.
 
-## Telas implementadas
+---
+
+## Telas e rotas principais
 
 | Tela | Rota |
 | --- | --- |
@@ -86,17 +144,73 @@ caracteres) autentica:
 | Dashboard do aluno | `/aluno/dashboard` |
 | Novo relato | `/aluno/novo-relato` |
 | Histórico de relatos | `/aluno/historico` |
-| Detalhe do relato (aluno) | `/aluno/relato/:id` |
+| Detalhe do relato | `/aluno/relato/:id` |
 | Dashboard administrativo | `/gestao/dashboard` |
 | Gerenciar relatos | `/gestao/relatos` |
-| Detalhe/resposta do relato (gestão) | `/gestao/relatos/:id` |
+| Detalhe/resposta do relato | `/gestao/relatos/:id` |
 | Gerenciar usuários | `/gestao/usuarios` |
 | Relatórios e estatísticas | `/gestao/estatisticas` |
 
-## Próximos passos sugeridos
+---
 
-1. Substituir os serviços mock por integrações reais via `HttpClient`
-   (mantendo os mesmos métodos públicos já usados pelos componentes).
-2. Adicionar testes unitários (Jasmine/Karma já configurados pelo Angular CLI).
-3. Implementar upload real de imagens no formulário de "Novo Relato".
-4. Tela de "Esqueci minha senha" (link já presente no login, rota pendente).
+## Como executar o projeto
+
+Pré-requisitos:
+- Node.js
+- npm
+- Angular CLI
+
+No terminal, execute:
+
+```bash
+cd speakup
+npm install
+npm start
+```
+
+A aplicação será iniciada em ambiente local, normalmente em:
+
+```text
+http://localhost:4200
+```
+
+Para gerar build de produção:
+
+```bash
+npm run build
+```
+
+---
+
+## Considerações técnicas
+
+O projeto foi estruturado com foco em uma implementação clara e didática, mantendo boas práticas de organização e arquitetura front-end. Algumas decisões importantes incluem:
+
+- uso de components standalone para reduzir acoplamento e facilitar manutenção;
+- utilização de signals para gestão de estado reativo;
+- organização por módulos de funcionalidade e recursos compartilhados;
+- implementação de dados simulados para reprodução de cenários reais;
+- design consistente com paleta institucional e elementos visuais bem definidos.
+
+Essas escolhas reforçam a proposta do sistema como um protótipo funcional e uma base sólida para evolução futura.
+
+---
+
+## Próximos passos
+
+Para continuar o desenvolvimento e transformar a solução em um produto mais completo, os próximos passos sugeridos são:
+
+1. integração com backend real via API;
+2. autenticação segura com banco de usuários e permissões;
+3. persistência de relatos em banco de dados;
+4. upload e armazenamento de imagens ou anexos;
+5. implementação de testes automatizados;
+6. criação de dashboards com dados reais e indicadores mais avançados.
+
+---
+
+## Conclusão
+
+O SpeakUp representa uma proposta de solução digital para melhorar a comunicação, organização e acompanhamento de relatos escolares. O projeto demonstra a aplicação de conceitos modernos de desenvolvimento front-end, com foco em usabilidade, clareza de fluxo e experiência do usuário.
+
+Além disso, a solução se mostra relevante como ferramenta de apoio institucional, unindo praticidade para os alunos e controle para a gestão escolar, contribuindo para uma experiência mais transparente e eficiente dentro do ambiente educacional.
