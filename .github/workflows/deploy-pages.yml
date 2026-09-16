@@ -31,7 +31,7 @@ jobs:
         run: npm ci
 
       - name: Build
-        run: npm run build -- --base-href=/spuIA/
+        run: npm run build -- --base-href=/SpeakUp/
 
       - name: Support Angular routes
         run: cp dist/speakup/browser/index.html dist/speakup/browser/404.html
