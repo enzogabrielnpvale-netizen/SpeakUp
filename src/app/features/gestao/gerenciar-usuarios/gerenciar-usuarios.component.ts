@@ -5,7 +5,7 @@ import { UsuariosService } from '../../../core/services/usuarios.service';
 import { RelatosService } from '../../../core/services/relatos.service';
 import { SerieEscolar } from '../../../core/models/usuario.model';
 
-const SERIES: SerieEscolar[] = ['7° Ano', '8° Ano', '9° Ano', '1° EM', '2° EM', '3° EM'];
+const SERIES: SerieEscolar[] = ['1° EM', '2° EM', '3° EM'];
 
 @Component({
   selector: 'app-gerenciar-usuarios',

@@ -22,11 +22,9 @@ export class RegisterComponent {
   private auth = inject(AuthService);
   private router = inject(Router);
 
-  senhaVisivel = signal(false);
-  confirmarVisivel = signal(false);
   enviando = signal(false);
 
-  readonly series = ['7° Ano', '8° Ano', '9° Ano', '1° EM', '2° EM', '3° EM'];
+  readonly series = ['1° EM', '2° EM', '3° EM'];
 
   form = this.fb.nonNullable.group(
     {
@@ -43,14 +41,6 @@ export class RegisterComponent {
 
   get f() {
     return this.form.controls;
-  }
-
-  alternarSenha(): void {
-    this.senhaVisivel.update((v) => !v);
-  }
-
-  alternarConfirmar(): void {
-    this.confirmarVisivel.update((v) => !v);
   }
 
   async enviar(): Promise<void> {

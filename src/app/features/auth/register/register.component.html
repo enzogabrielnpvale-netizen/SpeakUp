@@ -58,18 +58,8 @@
 
         <div class="su-field">
           <label for="senha">Senha</label>
-          <div class="su-input-wrap">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></svg>
-            <input [type]="senhaVisivel() ? 'text' : 'password'" id="senha" class="su-input" placeholder="Mínimo 6 caracteres" formControlName="senha"
-              [class.su-input-error]="f.senha.invalid && f.senha.touched" />
-            <button type="button" class="su-toggle-visibility" (click)="alternarSenha()" [attr.aria-label]="senhaVisivel() ? 'Ocultar senha' : 'Mostrar senha'">
-              @if (senhaVisivel()) {
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.94 17.94A10.94 10.94 0 0 1 12 20c-7 0-11-8-11-8a21.6 21.6 0 0 1 5.06-6.06M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a21.6 21.6 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24" /><line x1="1" y1="1" x2="23" y2="23" /></svg>
-              } @else {
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" /><circle cx="12" cy="12" r="3" /></svg>
-              }
-            </button>
-          </div>
+          <input type="password" id="senha" class="su-input su-input-plain" placeholder="Mínimo 6 caracteres" formControlName="senha"
+            [class.su-input-error]="f.senha.invalid && f.senha.touched" />
           @if (f.senha.invalid && f.senha.touched) {
             <span class="su-error-text">A senha deve ter ao menos 6 caracteres.</span>
           }
@@ -77,18 +67,8 @@
 
         <div class="su-field">
           <label for="confirmarSenha">Confirmar senha</label>
-          <div class="su-input-wrap">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></svg>
-            <input [type]="confirmarVisivel() ? 'text' : 'password'" id="confirmarSenha" class="su-input" placeholder="Repita a senha" formControlName="confirmarSenha"
-              [class.su-input-error]="(f.confirmarSenha.touched && form.errors?.['senhasDiferentes']) || (f.confirmarSenha.invalid && f.confirmarSenha.touched)" />
-            <button type="button" class="su-toggle-visibility" (click)="alternarConfirmar()" [attr.aria-label]="confirmarVisivel() ? 'Ocultar senha' : 'Mostrar senha'">
-              @if (confirmarVisivel()) {
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.94 17.94A10.94 10.94 0 0 1 12 20c-7 0-11-8-11-8a21.6 21.6 0 0 1 5.06-6.06M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a21.6 21.6 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24" /><line x1="1" y1="1" x2="23" y2="23" /></svg>
-              } @else {
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" /><circle cx="12" cy="12" r="3" /></svg>
-              }
-            </button>
-          </div>
+          <input type="password" id="confirmarSenha" class="su-input su-input-plain" placeholder="Repita a senha" formControlName="confirmarSenha"
+            [class.su-input-error]="(f.confirmarSenha.touched && form.errors?.['senhasDiferentes']) || (f.confirmarSenha.invalid && f.confirmarSenha.touched)" />
           @if (f.confirmarSenha.touched && form.errors?.['senhasDiferentes']) {
             <span class="su-error-text">As senhas não coincidem.</span>
           }
@@ -116,11 +96,6 @@
     </div>
     <h2>Junte-se ao SpeakUp</h2>
     <p>Crie sua conta de aluno e comece a relatar situações, acompanhar soluções e contribuir para um ambiente escolar melhor.</p>
-
-    <div class="split-stats">
-      <div class="split-stat"><strong>98%</strong><span>Taxa de resolução</span></div>
-      <div class="split-stat"><strong>500+</strong><span>Relatos resolvidos</span></div>
-    </div>
   </div>
 </div>
 
