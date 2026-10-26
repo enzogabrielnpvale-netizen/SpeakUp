@@ -1,14 +1,4 @@
-<header class="topo-simples">
-  <div class="su-container topo-simples-inner">
-    <span class="marca"><span class="marca-icone">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></svg>
-    </span>SpeakUp</span>
-    <a routerLink="/gestao/relatos" class="link-voltar">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12" /><polyline points="12 19 5 12 12 5" /></svg>
-      Voltar
-    </a>
-  </div>
-</header>
+<app-navbar-gestao />
 
 @if (relato(); as r) {
   <main class="su-container pagina">
@@ -33,6 +23,20 @@
         </div>
 
         <div class="su-card bloco">
+          <h2>Prioridade do Relato</h2>
+          <div class="su-field">
+            <label for="prioridade">Definir prioridade</label>
+            <select id="prioridade" class="su-input su-input-plain" [ngModel]="prioridadeSelecionada()" (ngModelChange)="prioridadeSelecionada.set($event)">
+              @for (p of prioridadesDisponiveis; track p) { <option [value]="p">{{ p }}</option> }
+            </select>
+          </div>
+          <button type="button" class="su-btn su-btn-primary" (click)="salvarPrioridade()">Salvar Prioridade</button>
+          @if (prioridadeAtualizada()) {
+            <span class="confirmacao">✓ Prioridade atualizada com sucesso!</span>
+          }
+        </div>
+
+        <div class="su-card bloco">
           <h2>Responder ao Aluno</h2>
 
           <div class="su-field">
@@ -48,9 +52,14 @@
             </select>
           </div>
 
-          <button type="button" class="su-btn su-btn-primary" (click)="enviarResposta()">Enviar Resposta</button>
+          <button type="button" class="su-btn su-btn-primary" [disabled]="salvando()" (click)="enviarResposta()">
+            {{ salvando() ? 'Salvando...' : resposta().trim() ? 'Enviar Resposta' : 'Salvar Status' }}
+          </button>
           @if (enviado()) {
-            <span class="confirmacao">✓ Resposta enviada com sucesso!</span>
+            <span class="confirmacao">✓ Alterações salvas com sucesso!</span>
+          }
+          @if (erroAtualizacao()) {
+            <span class="su-error-text" role="alert">{{ erroAtualizacao() }}</span>
           }
         </div>
       </div>

@@ -23,14 +23,6 @@ import { AuthService } from '../../../core/services/auth.service';
         </nav>
 
         <div class="nav-actions">
-          <button class="icon-btn" type="button" aria-label="Notificações">
-            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9" />
-              <path d="M13.73 21a2 2 0 0 1-3.46 0" />
-            </svg>
-            <span class="dot"></span>
-          </button>
-
           <div class="usuario">
             <span class="avatar">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -61,7 +53,6 @@ import { AuthService } from '../../../core/services/auth.service';
     .nav-actions { display: flex; align-items: center; gap: 18px; }
     .icon-btn { position: relative; background: transparent; border: none; color: var(--su-gray-600); display: flex; padding: 6px; border-radius: 8px; }
     .icon-btn:hover { background: var(--su-gray-100); }
-    .dot { position: absolute; top: 4px; right: 4px; width: 7px; height: 7px; border-radius: 50%; background: var(--su-danger-600); }
     .usuario { display: flex; align-items: center; gap: 8px; }
     .avatar { width: 28px; height: 28px; border-radius: 50%; background: var(--su-blue-100); color: var(--su-blue-600); display: flex; align-items: center; justify-content: center; }
     .nome { font-size: 14px; font-weight: 600; color: var(--su-gray-900); }

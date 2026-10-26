@@ -205,3 +205,855 @@ I0904 00:04:07.282274    9412 load.go:74] Finished reloading
  {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0904 00:04:07.599673    9412 engine.go:209] [projects/emulator/locations/emulator/services/speakup-1 3192] ExecuteGraphqlRead query IntrospectionQuery: succeeded. \n"}}
 [debug] [2026-09-04T03:04:08.220Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
 [debug] [2026-09-04T03:04:08.221Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[debug] [2026-09-13T19:59:35.420Z] [Firebase Plugin] Activating Firebase extension.
+[debug] [2026-09-13T20:00:06.084Z] [Firebase Plugin] requireAuthWrapper
+[debug] [2026-09-13T20:00:06.087Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-09-13T20:00:06.088Z] > authorizing via signed-in user (enzogabrielnpvale@gmail.com)
+[debug] [2026-09-13T20:00:06.092Z] Checked if tokens are valid: false, expires at: 1788494646358
+[debug] [2026-09-13T20:00:06.092Z] Checked if tokens are valid: false, expires at: 1788494646358
+[debug] [2026-09-13T20:00:06.093Z] > refreshing access token with scopes: []
+[debug] [2026-09-13T20:00:06.095Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-09-13T20:00:06.096Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-09-13T20:00:06.122Z] [Firebase Plugin] VSCode notification server listening on port 40001
+[info] [Firebase Plugin] Starting SQL Connect toolkit (version 3.4.16) on port 50001
+[debug] [2026-09-13T20:00:07.413Z] W0913 17:00:07.389617    9484 control.go:74] [projects/emulator/locations/emulator/services/speakup-1 9b00] connector "example" has errors: example\queries.gql:31:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:35:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:39:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:46:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:53:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:57:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:61:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:65:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:72:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:83:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:87:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:91:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:98:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:105:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:109:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:113:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:117:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:123:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+
+sources: example\queries.gql [3454B] 
+I0913 17:00:07.408036    9484 control.go:100] [projects/emulator/locations/emulator/services/speakup-1 9b00] UpdateResources(): done
+Main schema: sources: schema\schema.gql [554B] 
+Connector "example": sources: example\queries.gql [3454B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"W0913 17:00:07.389617    9484 control.go:74] [projects/emulator/locations/emulator/services/speakup-1 9b00] connector \"example\" has errors: example\\queries.gql:31:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:35:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:39:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:46:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:53:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:57:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:61:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:65:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:72:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:83:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:87:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:91:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:98:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:105:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:109:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:113:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:117:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:123:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\n\nsources: example\\queries.gql [3454B] \nI0913 17:00:07.408036    9484 control.go:100] [projects/emulator/locations/emulator/services/speakup-1 9b00] UpdateResources(): done\nMain schema: sources: schema\\schema.gql [554B] \nConnector \"example\": sources: example\\queries.gql [3454B] \n"}}
+[debug] [2026-09-13T20:00:07.414Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"dataconnect"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2026-09-13T20:00:07.415Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"dataconnect"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2026-09-13T20:00:07.415Z] Starting SQL Connect Emulator with command {"binary":"C:\\Users\\bill\\.cache\\firebase\\emulators\\dataconnect-emulator-3.4.16.exe","args":["--logtostderr","-v=2","dev","--listen=localhost:50001","--config_dir=c:\\Users\\bill\\Documents\\claudesite\\speakup\\dataconnect","--enable_output_schema_extensions=true","--enable_output_generated_sdk=true"],"optionalArgs":["listen","config_dir","enable_output_schema_extensions","enable_output_generated_sdk"],"joinArgs":true,"shell":false,"port":9399} {"metadata":{"emulator":{"name":"dataconnect"},"message":"Starting SQL Connect Emulator with command {\"binary\":\"C:\\\\Users\\\\bill\\\\.cache\\\\firebase\\\\emulators\\\\dataconnect-emulator-3.4.16.exe\",\"args\":[\"--logtostderr\",\"-v=2\",\"dev\",\"--listen=localhost:50001\",\"--config_dir=c:\\\\Users\\\\bill\\\\Documents\\\\claudesite\\\\speakup\\\\dataconnect\",\"--enable_output_schema_extensions=true\",\"--enable_output_generated_sdk=true\"],\"optionalArgs\":[\"listen\",\"config_dir\",\"enable_output_schema_extensions\",\"enable_output_generated_sdk\"],\"joinArgs\":true,\"shell\":false,\"port\":9399}"}}
+[info] i  dataconnect: SQL Connect Emulator logging to dataconnect-debug.log {"metadata":{"emulator":{"name":"dataconnect"},"message":"SQL Connect Emulator logging to \u001b[1mdataconnect-debug.log\u001b[22m"}}
+[debug] [2026-09-13T20:00:07.583Z] I0913 17:00:07.498458    6428 load.go:31] Reloading schema and connectors...
+W0913 17:00:07.577009    6428 control.go:74] [projects/emulator/locations/emulator/services/speakup-1 b4b5] connector "example" has errors: example\queries.gql:31:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:35:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:39:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:46:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:53:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:57:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:61:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:65:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:72:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:83:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:87:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:91:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:98:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:105:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:109:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:113:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:117:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:123:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+
+sources: example\queries.gql [3454B] 
+I0913 17:00:07.577009    6428 control.go:100] [projects/emulator/locations/emulator/services/speakup-1 b4b5] UpdateResources(): done
+Main schema: sources: schema\schema.gql [554B] 
+Connector "example": sources: example\queries.gql [3454B] 
+E0913 17:00:07.578008    6428 load.go:73] Could not load sources: 
+Errors: example\queries.gql:31:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:35:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:39:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:46:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:53:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:57:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:61:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:65:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:72:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:83:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:87:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:91:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:98:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:105:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:109:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:113:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:117:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:123:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0913 17:00:07.498458    6428 load.go:31] Reloading schema and connectors...\nW0913 17:00:07.577009    6428 control.go:74] [projects/emulator/locations/emulator/services/speakup-1 b4b5] connector \"example\" has errors: example\\queries.gql:31:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:35:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:39:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:46:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:53:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:57:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:61:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:65:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:72:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:83:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:87:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:91:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:98:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:105:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:109:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:113:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:117:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:123:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\n\nsources: example\\queries.gql [3454B] \nI0913 17:00:07.577009    6428 control.go:100] [projects/emulator/locations/emulator/services/speakup-1 b4b5] UpdateResources(): done\nMain schema: sources: schema\\schema.gql [554B] \nConnector \"example\": sources: example\\queries.gql [3454B] \nE0913 17:00:07.578008    6428 load.go:73] Could not load sources: \nErrors: example\\queries.gql:31:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:35:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:39:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:46:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:53:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:57:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:61:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:65:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:72:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:83:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:87:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:91:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:98:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:105:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:109:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:113:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:117:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:123:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\n"}}
+[debug] [2026-09-13T20:00:07.637Z] I0913 17:00:07.583991    6428 collector.go:107] schema extensions wrote into "c:\\Users\\bill\\Documents\\claudesite\\speakup\\dataconnect\\.dataconnect\\schema"
+Generated sources: main\query.gql [6286B] main\mutation.gql [17004B] main\implicit.gql [2530B] prelude.gql [84995B] main\input.gql [39010B] main\relation.gql [19284B] 
+I0913 17:00:07.583991    6428 load.go:74] Finished reloading
+I0913 17:00:07.616656    6428 dev.go:101] Listening on address (HTTP + gRPC): 127.0.0.1:50001
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0913 17:00:07.583991    6428 collector.go:107] schema extensions wrote into \"c:\\\\Users\\\\bill\\\\Documents\\\\claudesite\\\\speakup\\\\dataconnect\\\\.dataconnect\\\\schema\"\nGenerated sources: main\\query.gql [6286B] main\\mutation.gql [17004B] main\\implicit.gql [2530B] prelude.gql [84995B] main\\input.gql [39010B] main\\relation.gql [19284B] \nI0913 17:00:07.583991    6428 load.go:74] Finished reloading\nI0913 17:00:07.616656    6428 dev.go:101] Listening on address (HTTP + gRPC): 127.0.0.1:50001\n"}}
+[debug] [2026-09-13T20:00:07.782Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-09-13T20:00:07.782Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-09-13T20:00:07.816Z] [Firebase Plugin] User found:  enzogabrielnpvale@gmail.com
+[info] [Firebase Plugin] (Core:Project) New user detected, fetching projects
+[debug] [2026-09-13T20:00:07.818Z] Checked if tokens are valid: true, expires at: 1789333206783
+[debug] [2026-09-13T20:00:07.819Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=1000
+[debug] [2026-09-13T20:00:07.969Z] I0913 17:00:07.967614    6428 engine.go:209] [projects/emulator/locations/emulator/services/speakup-1 b4b5] ExecuteGraphqlRead query IntrospectionQuery: succeeded. 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0913 17:00:07.967614    6428 engine.go:209] [projects/emulator/locations/emulator/services/speakup-1 b4b5] ExecuteGraphqlRead query IntrospectionQuery: succeeded. \n"}}
+[debug] [2026-09-13T20:00:10.822Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2026-09-13T20:00:10.823Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[info] [Firebase Plugin] Stopping SQL Connect toolkit
+[debug] [2026-09-13T21:42:25.261Z] [Firebase Plugin] Activating Firebase extension.
+[debug] [2026-09-13T21:42:44.978Z] [Firebase Plugin] requireAuthWrapper
+[debug] [2026-09-13T21:42:44.981Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-09-13T21:42:44.981Z] > authorizing via signed-in user (enzogabrielnpvale@gmail.com)
+[debug] [2026-09-13T21:42:44.985Z] Checked if tokens are valid: false, expires at: 1789333206783
+[debug] [2026-09-13T21:42:44.986Z] Checked if tokens are valid: false, expires at: 1789333206783
+[debug] [2026-09-13T21:42:44.986Z] > refreshing access token with scopes: []
+[debug] [2026-09-13T21:42:44.989Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-09-13T21:42:44.989Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-09-13T21:42:45.019Z] [Firebase Plugin] VSCode notification server listening on port 40001
+[info] [Firebase Plugin] Starting SQL Connect toolkit (version 3.4.16) on port 50001
+[debug] [2026-09-13T21:42:47.213Z] W0913 18:42:47.186922    1364 control.go:74] [projects/emulator/locations/emulator/services/speakup-1 a9c5] connector "example" has errors: example\queries.gql:31:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:35:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:39:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:46:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:53:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:57:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:61:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:65:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:72:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:83:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:87:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:91:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:98:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:105:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:109:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:113:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:117:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:123:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+
+sources: example\queries.gql [3454B] 
+I0913 18:42:47.207043    1364 control.go:100] [projects/emulator/locations/emulator/services/speakup-1 a9c5] UpdateResources(): done
+Main schema: sources: schema\schema.gql [554B] 
+Connector "example": sources: example\queries.gql [3454B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"W0913 18:42:47.186922    1364 control.go:74] [projects/emulator/locations/emulator/services/speakup-1 a9c5] connector \"example\" has errors: example\\queries.gql:31:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:35:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:39:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:46:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:53:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:57:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:61:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:65:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:72:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:83:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:87:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:91:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:98:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:105:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:109:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:113:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:117:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:123:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\n\nsources: example\\queries.gql [3454B] \nI0913 18:42:47.207043    1364 control.go:100] [projects/emulator/locations/emulator/services/speakup-1 a9c5] UpdateResources(): done\nMain schema: sources: schema\\schema.gql [554B] \nConnector \"example\": sources: example\\queries.gql [3454B] \n"}}
+[debug] [2026-09-13T21:42:47.214Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"dataconnect"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2026-09-13T21:42:47.215Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"dataconnect"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2026-09-13T21:42:47.215Z] Starting SQL Connect Emulator with command {"binary":"C:\\Users\\bill\\.cache\\firebase\\emulators\\dataconnect-emulator-3.4.16.exe","args":["--logtostderr","-v=2","dev","--listen=localhost:50001","--config_dir=c:\\Users\\bill\\Documents\\claudesite\\speakup\\dataconnect","--enable_output_schema_extensions=true","--enable_output_generated_sdk=true"],"optionalArgs":["listen","config_dir","enable_output_schema_extensions","enable_output_generated_sdk"],"joinArgs":true,"shell":false,"port":9399} {"metadata":{"emulator":{"name":"dataconnect"},"message":"Starting SQL Connect Emulator with command {\"binary\":\"C:\\\\Users\\\\bill\\\\.cache\\\\firebase\\\\emulators\\\\dataconnect-emulator-3.4.16.exe\",\"args\":[\"--logtostderr\",\"-v=2\",\"dev\",\"--listen=localhost:50001\",\"--config_dir=c:\\\\Users\\\\bill\\\\Documents\\\\claudesite\\\\speakup\\\\dataconnect\",\"--enable_output_schema_extensions=true\",\"--enable_output_generated_sdk=true\"],\"optionalArgs\":[\"listen\",\"config_dir\",\"enable_output_schema_extensions\",\"enable_output_generated_sdk\"],\"joinArgs\":true,\"shell\":false,\"port\":9399}"}}
+[info] i  dataconnect: SQL Connect Emulator logging to dataconnect-debug.log {"metadata":{"emulator":{"name":"dataconnect"},"message":"SQL Connect Emulator logging to \u001b[1mdataconnect-debug.log\u001b[22m"}}
+[debug] [2026-09-13T21:42:48.130Z] I0913 18:42:47.279257   13084 load.go:31] Reloading schema and connectors...
+W0913 18:42:47.364077   13084 control.go:74] [projects/emulator/locations/emulator/services/speakup-1 91dc] connector "example" has errors: example\queries.gql:31:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:35:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:39:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:46:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:53:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:57:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:61:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:65:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:72:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:83:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:87:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:91:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:98:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:105:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:109:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:113:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:117:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:123:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+
+sources: example\queries.gql [3454B] 
+I0913 18:42:47.364077   13084 control.go:100] [projects/emulator/locations/emulator/services/speakup-1 91dc] UpdateResources(): done
+Main schema: sources: schema\schema.gql [554B] 
+Connector "example": sources: example\queries.gql [3454B] 
+E0913 18:42:47.365121   13084 load.go:73] Could not load sources: 
+Errors: example\queries.gql:31:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:35:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:39:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:46:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:53:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:57:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:61:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:65:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:72:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:83:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:87:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:91:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:98:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:105:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:109:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:113:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:117:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:123:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+I0913 18:42:47.371660   13084 collector.go:107] schema extensions wrote into "c:\\Users\\bill\\Documents\\claudesite\\speakup\\dataconnect\\.dataconnect\\schema"
+Generated sources: main\query.gql [6286B] main\mutation.gql [17004B] prelude.gql [84995B] main\implicit.gql [2530B] main\input.gql [39010B] main\relation.gql [19284B] 
+I0913 18:42:47.371660   13084 load.go:74] Finished reloading
+I0913 18:42:47.404283   13084 dev.go:101] Listening on address (HTTP + gRPC): 127.0.0.1:50001
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0913 18:42:47.279257   13084 load.go:31] Reloading schema and connectors...\nW0913 18:42:47.364077   13084 control.go:74] [projects/emulator/locations/emulator/services/speakup-1 91dc] connector \"example\" has errors: example\\queries.gql:31:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:35:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:39:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:46:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:53:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:57:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:61:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:65:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:72:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:83:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:87:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:91:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:98:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:105:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:109:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:113:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:117:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:123:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\n\nsources: example\\queries.gql [3454B] \nI0913 18:42:47.364077   13084 control.go:100] [projects/emulator/locations/emulator/services/speakup-1 91dc] UpdateResources(): done\nMain schema: sources: schema\\schema.gql [554B] \nConnector \"example\": sources: example\\queries.gql [3454B] \nE0913 18:42:47.365121   13084 load.go:73] Could not load sources: \nErrors: example\\queries.gql:31:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:35:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:39:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:46:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:53:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:57:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:61:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:65:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:72:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:83:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:87:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:91:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:98:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:105:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:109:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:113:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:117:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:123:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nI0913 18:42:47.371660   13084 collector.go:107] schema extensions wrote into \"c:\\\\Users\\\\bill\\\\Documents\\\\claudesite\\\\speakup\\\\dataconnect\\\\.dataconnect\\\\schema\"\nGenerated sources: main\\query.gql [6286B] main\\mutation.gql [17004B] prelude.gql [84995B] main\\implicit.gql [2530B] main\\input.gql [39010B] main\\relation.gql [19284B] \nI0913 18:42:47.371660   13084 load.go:74] Finished reloading\nI0913 18:42:47.404283   13084 dev.go:101] Listening on address (HTTP + gRPC): 127.0.0.1:50001\n"}}
+[debug] [2026-09-13T21:42:48.833Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-09-13T21:42:48.834Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-09-13T21:42:48.892Z] [Firebase Plugin] User found:  enzogabrielnpvale@gmail.com
+[info] [Firebase Plugin] (Core:Project) New user detected, fetching projects
+[debug] [2026-09-13T21:42:48.894Z] Checked if tokens are valid: true, expires at: 1789339367834
+[debug] [2026-09-13T21:42:48.895Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=1000
+[debug] [2026-09-13T21:42:49.019Z] I0913 18:42:48.883754   13084 engine.go:209] [projects/emulator/locations/emulator/services/speakup-1 91dc] ExecuteGraphqlRead query IntrospectionQuery: succeeded. 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0913 18:42:48.883754   13084 engine.go:209] [projects/emulator/locations/emulator/services/speakup-1 91dc] ExecuteGraphqlRead query IntrospectionQuery: succeeded. \n"}}
+[debug] [2026-09-13T21:42:49.848Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2026-09-13T21:42:49.849Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[info] [Firebase Plugin] Stopping SQL Connect toolkit
+[warn] !  SQL Connect Emulator has exited upon receiving signal: SIGINT 
+[debug] [2026-09-14T09:06:19.565Z] [Firebase Plugin] Activating Firebase extension.
+[debug] [2026-09-14T09:06:24.983Z] [Firebase Plugin] requireAuthWrapper
+[debug] [2026-09-14T09:06:25.005Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-09-14T09:06:25.006Z] > authorizing via signed-in user (enzogabrielnpvale@gmail.com)
+[debug] [2026-09-14T09:06:25.009Z] Checked if tokens are valid: false, expires at: 1789339367834
+[debug] [2026-09-14T09:06:25.009Z] Checked if tokens are valid: false, expires at: 1789339367834
+[debug] [2026-09-14T09:06:25.010Z] > refreshing access token with scopes: []
+[debug] [2026-09-14T09:06:25.013Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-09-14T09:06:25.013Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-09-14T09:06:25.038Z] [Firebase Plugin] VSCode notification server listening on port 40001
+[info] [Firebase Plugin] Starting SQL Connect toolkit (version 3.4.16) on port 50001
+[debug] [2026-09-14T09:06:25.829Z] W0914 06:06:25.815690    7284 control.go:74] [projects/emulator/locations/emulator/services/speakup-1 cf39] connector "example" has errors: example\queries.gql:31:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:35:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:39:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:46:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:53:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:57:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:61:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:65:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:72:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:83:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:87:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:91:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:98:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:105:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:109:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:113:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:117:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:123:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+
+sources: example\queries.gql [3454B] 
+I0914 06:06:25.833948    7284 control.go:100] [projects/emulator/locations/emulator/services/speakup-1 cf39] UpdateResources(): done
+Main schema: sources: schema\schema.gql [554B] 
+Connector "example": sources: example\queries.gql [3454B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"W0914 06:06:25.815690    7284 control.go:74] [projects/emulator/locations/emulator/services/speakup-1 cf39] connector \"example\" has errors: example\\queries.gql:31:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:35:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:39:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:46:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:53:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:57:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:61:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:65:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:72:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:83:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:87:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:91:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:98:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:105:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:109:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:113:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:117:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:123:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\n\nsources: example\\queries.gql [3454B] \nI0914 06:06:25.833948    7284 control.go:100] [projects/emulator/locations/emulator/services/speakup-1 cf39] UpdateResources(): done\nMain schema: sources: schema\\schema.gql [554B] \nConnector \"example\": sources: example\\queries.gql [3454B] \n"}}
+[debug] [2026-09-14T09:06:25.831Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"dataconnect"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2026-09-14T09:06:25.831Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"dataconnect"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2026-09-14T09:06:25.831Z] Starting SQL Connect Emulator with command {"binary":"C:\\Users\\bill\\.cache\\firebase\\emulators\\dataconnect-emulator-3.4.16.exe","args":["--logtostderr","-v=2","dev","--listen=localhost:50001","--config_dir=c:\\Users\\bill\\Documents\\claudesite\\speakup\\dataconnect","--enable_output_schema_extensions=true","--enable_output_generated_sdk=true"],"optionalArgs":["listen","config_dir","enable_output_schema_extensions","enable_output_generated_sdk"],"joinArgs":true,"shell":false,"port":9399} {"metadata":{"emulator":{"name":"dataconnect"},"message":"Starting SQL Connect Emulator with command {\"binary\":\"C:\\\\Users\\\\bill\\\\.cache\\\\firebase\\\\emulators\\\\dataconnect-emulator-3.4.16.exe\",\"args\":[\"--logtostderr\",\"-v=2\",\"dev\",\"--listen=localhost:50001\",\"--config_dir=c:\\\\Users\\\\bill\\\\Documents\\\\claudesite\\\\speakup\\\\dataconnect\",\"--enable_output_schema_extensions=true\",\"--enable_output_generated_sdk=true\"],\"optionalArgs\":[\"listen\",\"config_dir\",\"enable_output_schema_extensions\",\"enable_output_generated_sdk\"],\"joinArgs\":true,\"shell\":false,\"port\":9399}"}}
+[info] i  dataconnect: SQL Connect Emulator logging to dataconnect-debug.log {"metadata":{"emulator":{"name":"dataconnect"},"message":"SQL Connect Emulator logging to \u001b[1mdataconnect-debug.log\u001b[22m"}}
+[debug] [2026-09-14T09:06:25.954Z] I0914 06:06:25.894609    6600 load.go:31] Reloading schema and connectors...
+W0914 06:06:25.957024    6600 control.go:74] [projects/emulator/locations/emulator/services/speakup-1 9b85] connector "example" has errors: example\queries.gql:31:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:35:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:39:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:46:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:53:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:57:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:61:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:65:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:72:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:83:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:87:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:91:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:98:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:105:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:109:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:113:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:117:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:123:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+
+sources: example\queries.gql [3454B] 
+I0914 06:06:25.957024    6600 control.go:100] [projects/emulator/locations/emulator/services/speakup-1 9b85] UpdateResources(): done
+Main schema: sources: schema\schema.gql [554B] 
+Connector "example": sources: example\queries.gql [3454B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0914 06:06:25.894609    6600 load.go:31] Reloading schema and connectors...\nW0914 06:06:25.957024    6600 control.go:74] [projects/emulator/locations/emulator/services/speakup-1 9b85] connector \"example\" has errors: example\\queries.gql:31:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:35:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:39:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:46:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:53:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:57:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:61:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:65:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:72:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:83:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:87:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:91:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:98:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:105:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:109:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:113:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:117:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:123:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\n\nsources: example\\queries.gql [3454B] \nI0914 06:06:25.957024    6600 control.go:100] [projects/emulator/locations/emulator/services/speakup-1 9b85] UpdateResources(): done\nMain schema: sources: schema\\schema.gql [554B] \nConnector \"example\": sources: example\\queries.gql [3454B] \n"}}
+[debug] [2026-09-14T09:06:25.962Z] E0914 06:06:25.966326    6600 load.go:73] Could not load sources: 
+Errors: example\queries.gql:31:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:35:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:39:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:46:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:53:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:57:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:61:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:65:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:72:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:83:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:87:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:91:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:98:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:105:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:109:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:113:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:117:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:123:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"E0914 06:06:25.966326    6600 load.go:73] Could not load sources: \nErrors: example\\queries.gql:31:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:35:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:39:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:46:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:53:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:57:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:61:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:65:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:72:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:83:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:87:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:91:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:98:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:105:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:109:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:113:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:117:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:123:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\n"}}
+[debug] [2026-09-14T09:06:25.989Z] I0914 06:06:25.977941    6600 collector.go:107] schema extensions wrote into "c:\\Users\\bill\\Documents\\claudesite\\speakup\\dataconnect\\.dataconnect\\schema"
+Generated sources: main\query.gql [6286B] main\mutation.gql [17004B] prelude.gql [84995B] main\implicit.gql [2530B] main\input.gql [39010B] main\relation.gql [19284B] 
+I0914 06:06:25.977941    6600 load.go:74] Finished reloading
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0914 06:06:25.977941    6600 collector.go:107] schema extensions wrote into \"c:\\\\Users\\\\bill\\\\Documents\\\\claudesite\\\\speakup\\\\dataconnect\\\\.dataconnect\\\\schema\"\nGenerated sources: main\\query.gql [6286B] main\\mutation.gql [17004B] prelude.gql [84995B] main\\implicit.gql [2530B] main\\input.gql [39010B] main\\relation.gql [19284B] \nI0914 06:06:25.977941    6600 load.go:74] Finished reloading\n"}}
+[debug] [2026-09-14T09:06:26.039Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-09-14T09:06:26.040Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-09-14T09:06:26.070Z] [Firebase Plugin] User found:  enzogabrielnpvale@gmail.com
+[info] [Firebase Plugin] (Core:Project) New user detected, fetching projects
+[debug] [2026-09-14T09:06:26.072Z] Checked if tokens are valid: true, expires at: 1789380385040
+[debug] [2026-09-14T09:06:26.073Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=1000
+[debug] [2026-09-14T09:06:26.156Z] I0914 06:06:26.112268    6600 dev.go:101] Listening on address (HTTP + gRPC): 127.0.0.1:50001
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0914 06:06:26.112268    6600 dev.go:101] Listening on address (HTTP + gRPC): 127.0.0.1:50001\n"}}
+[debug] [2026-09-14T09:06:26.344Z] I0914 06:06:26.352693    6600 engine.go:209] [projects/emulator/locations/emulator/services/speakup-1 9b85] ExecuteGraphqlRead query IntrospectionQuery: succeeded. 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0914 06:06:26.352693    6600 engine.go:209] [projects/emulator/locations/emulator/services/speakup-1 9b85] ExecuteGraphqlRead query IntrospectionQuery: succeeded. \n"}}
+[debug] [2026-09-14T09:06:26.910Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2026-09-14T09:06:26.911Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[info] [Firebase Plugin] Stopping SQL Connect toolkit
+[debug] [2026-09-16T02:21:55.608Z] [Firebase Plugin] Activating Firebase extension.
+[debug] [2026-09-16T02:22:36.356Z] [Firebase Plugin] requireAuthWrapper
+[debug] [2026-09-16T02:22:36.363Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-09-16T02:22:36.364Z] > authorizing via signed-in user (enzogabrielnpvale@gmail.com)
+[debug] [2026-09-16T02:22:36.375Z] Checked if tokens are valid: false, expires at: 1789380385040
+[debug] [2026-09-16T02:22:36.376Z] Checked if tokens are valid: false, expires at: 1789380385040
+[debug] [2026-09-16T02:22:36.378Z] > refreshing access token with scopes: []
+[debug] [2026-09-16T02:22:36.384Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-09-16T02:22:36.385Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-09-16T02:22:36.445Z] [Firebase Plugin] VSCode notification server listening on port 40001
+[info] [Firebase Plugin] Starting SQL Connect toolkit (version 3.4.16) on port 50001
+[debug] [2026-09-16T02:22:40.291Z] W0915 23:22:40.249028   10516 control.go:74] [projects/emulator/locations/emulator/services/speakup-1 782e] connector "example" has errors: example\queries.gql:31:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:35:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:39:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:46:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:53:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:57:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:61:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:65:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:72:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:83:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:87:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:91:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:98:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:105:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:109:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:113:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:117:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:123:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+
+sources: example\queries.gql [3454B] 
+I0915 23:22:40.287480   10516 control.go:100] [projects/emulator/locations/emulator/services/speakup-1 782e] UpdateResources(): done
+Main schema: sources: schema\schema.gql [554B] 
+Connector "example": sources: example\queries.gql [3454B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"W0915 23:22:40.249028   10516 control.go:74] [projects/emulator/locations/emulator/services/speakup-1 782e] connector \"example\" has errors: example\\queries.gql:31:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:35:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:39:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:46:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:53:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:57:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:61:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:65:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:72:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:83:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:87:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:91:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:98:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:105:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:109:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:113:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:117:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:123:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\n\nsources: example\\queries.gql [3454B] \nI0915 23:22:40.287480   10516 control.go:100] [projects/emulator/locations/emulator/services/speakup-1 782e] UpdateResources(): done\nMain schema: sources: schema\\schema.gql [554B] \nConnector \"example\": sources: example\\queries.gql [3454B] \n"}}
+[debug] [2026-09-16T02:22:40.293Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"dataconnect"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2026-09-16T02:22:40.294Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"dataconnect"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2026-09-16T02:22:40.294Z] Starting SQL Connect Emulator with command {"binary":"C:\\Users\\bill\\.cache\\firebase\\emulators\\dataconnect-emulator-3.4.16.exe","args":["--logtostderr","-v=2","dev","--listen=localhost:50001","--config_dir=c:\\Users\\bill\\Documents\\claudesite\\speakup\\dataconnect","--enable_output_schema_extensions=true","--enable_output_generated_sdk=true"],"optionalArgs":["listen","config_dir","enable_output_schema_extensions","enable_output_generated_sdk"],"joinArgs":true,"shell":false,"port":9399} {"metadata":{"emulator":{"name":"dataconnect"},"message":"Starting SQL Connect Emulator with command {\"binary\":\"C:\\\\Users\\\\bill\\\\.cache\\\\firebase\\\\emulators\\\\dataconnect-emulator-3.4.16.exe\",\"args\":[\"--logtostderr\",\"-v=2\",\"dev\",\"--listen=localhost:50001\",\"--config_dir=c:\\\\Users\\\\bill\\\\Documents\\\\claudesite\\\\speakup\\\\dataconnect\",\"--enable_output_schema_extensions=true\",\"--enable_output_generated_sdk=true\"],\"optionalArgs\":[\"listen\",\"config_dir\",\"enable_output_schema_extensions\",\"enable_output_generated_sdk\"],\"joinArgs\":true,\"shell\":false,\"port\":9399}"}}
+[info] i  dataconnect: SQL Connect Emulator logging to dataconnect-debug.log {"metadata":{"emulator":{"name":"dataconnect"},"message":"SQL Connect Emulator logging to \u001b[1mdataconnect-debug.log\u001b[22m"}}
+[debug] [2026-09-16T02:22:41.017Z] I0915 23:22:40.385273    7820 load.go:31] Reloading schema and connectors...
+W0915 23:22:40.493381    7820 control.go:74] [projects/emulator/locations/emulator/services/speakup-1 9a0f] connector "example" has errors: example\queries.gql:31:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:35:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:39:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:46:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:53:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:57:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:61:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:65:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:72:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:83:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:87:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:91:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:98:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:105:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:109:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:113:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:117:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:123:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+
+sources: example\queries.gql [3454B] 
+I0915 23:22:40.493381    7820 control.go:100] [projects/emulator/locations/emulator/services/speakup-1 9a0f] UpdateResources(): done
+Main schema: sources: schema\schema.gql [554B] 
+Connector "example": sources: example\queries.gql [3454B] 
+E0915 23:22:40.495749    7820 load.go:73] Could not load sources: 
+Errors: example\queries.gql:31:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:35:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:39:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:46:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:53:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:57:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:61:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:65:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:72:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:83:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:87:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:91:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:98:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:105:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:109:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:113:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:117:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+example\queries.gql:123:1: On @auth: invalid expression ("auth.uid != nil"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')
+ | auth.uid != nil
+ | ............^
+I0915 23:22:40.498878    7820 collector.go:107] schema extensions wrote into "c:\\Users\\bill\\Documents\\claudesite\\speakup\\dataconnect\\.dataconnect\\schema"
+Generated sources: main\relation.gql [19284B] main\query.gql [6286B] main\mutation.gql [17004B] prelude.gql [84995B] main\implicit.gql [2530B] main\input.gql [39010B] 
+I0915 23:22:40.498878    7820 load.go:74] Finished reloading
+I0915 23:22:40.539739    7820 dev.go:101] Listening on address (HTTP + gRPC): 127.0.0.1:50001
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0915 23:22:40.385273    7820 load.go:31] Reloading schema and connectors...\nW0915 23:22:40.493381    7820 control.go:74] [projects/emulator/locations/emulator/services/speakup-1 9a0f] connector \"example\" has errors: example\\queries.gql:31:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:35:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:39:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:46:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:53:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:57:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:61:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:65:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:72:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:83:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:87:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:91:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:98:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:105:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:109:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:113:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:117:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:123:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\n\nsources: example\\queries.gql [3454B] \nI0915 23:22:40.493381    7820 control.go:100] [projects/emulator/locations/emulator/services/speakup-1 9a0f] UpdateResources(): done\nMain schema: sources: schema\\schema.gql [554B] \nConnector \"example\": sources: example\\queries.gql [3454B] \nE0915 23:22:40.495749    7820 load.go:73] Could not load sources: \nErrors: example\\queries.gql:31:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:35:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:39:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:46:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:53:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:57:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:61:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:65:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:72:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:83:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:87:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:91:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:98:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:105:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:109:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:113:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:117:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nexample\\queries.gql:123:1: On @auth: invalid expression (\"auth.uid != nil\"): ERROR: <input>:1:13: undeclared reference to 'nil' (in container '')\n | auth.uid != nil\n | ............^\nI0915 23:22:40.498878    7820 collector.go:107] schema extensions wrote into \"c:\\\\Users\\\\bill\\\\Documents\\\\claudesite\\\\speakup\\\\dataconnect\\\\.dataconnect\\\\schema\"\nGenerated sources: main\\relation.gql [19284B] main\\query.gql [6286B] main\\mutation.gql [17004B] prelude.gql [84995B] main\\implicit.gql [2530B] main\\input.gql [39010B] \nI0915 23:22:40.498878    7820 load.go:74] Finished reloading\nI0915 23:22:40.539739    7820 dev.go:101] Listening on address (HTTP + gRPC): 127.0.0.1:50001\n"}}
+[debug] [2026-09-16T02:22:42.273Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-09-16T02:22:42.274Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-09-16T02:22:42.335Z] [Firebase Plugin] User found:  enzogabrielnpvale@gmail.com
+[info] [Firebase Plugin] (Core:Project) New user detected, fetching projects
+[debug] [2026-09-16T02:22:42.338Z] Checked if tokens are valid: true, expires at: 1789528961275
+[debug] [2026-09-16T02:22:42.339Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=1000
+[debug] [2026-09-16T02:22:43.562Z] I0915 23:22:43.522170    7820 engine.go:209] [projects/emulator/locations/emulator/services/speakup-1 9a0f] ExecuteGraphqlRead query IntrospectionQuery: succeeded. 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0915 23:22:43.522170    7820 engine.go:209] [projects/emulator/locations/emulator/services/speakup-1 9a0f] ExecuteGraphqlRead query IntrospectionQuery: succeeded. \n"}}
+[debug] [2026-09-16T02:22:45.466Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2026-09-16T02:22:45.468Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[debug] [2026-09-16T02:42:26.879Z] [Firebase Plugin] Value of process.env.MONOSPACE_ENV: undefined
+[debug] [2026-09-16T02:42:26.881Z] [Firebase Plugin] requireAuthWrapper
+[debug] [2026-09-16T02:42:26.886Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-09-16T02:42:26.887Z] > authorizing via signed-in user (enzogabrielnpvale@gmail.com)
+[debug] [2026-09-16T02:42:26.889Z] Checked if tokens are valid: true, expires at: 1789528961275
+[debug] [2026-09-16T02:42:26.889Z] [Firebase Plugin] User found:  enzogabrielnpvale@gmail.com
+[info] [Firebase Plugin] (Core:Project) New user detected, fetching projects
+[debug] [2026-09-16T02:42:26.893Z] Checked if tokens are valid: true, expires at: 1789528961275
+[debug] [2026-09-16T02:42:26.896Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=1000
+[debug] [2026-09-16T02:42:26.930Z] [Firebase Plugin] Value of process.env.MONOSPACE_ENV: undefined
+[debug] [2026-09-16T02:42:26.932Z] [Firebase Plugin] requireAuthWrapper
+[debug] [2026-09-16T02:42:26.933Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-09-16T02:42:26.934Z] > authorizing via signed-in user (enzogabrielnpvale@gmail.com)
+[debug] [2026-09-16T02:42:26.935Z] Checked if tokens are valid: true, expires at: 1789528961275
+[debug] [2026-09-16T02:42:26.936Z] [Firebase Plugin] User found:  enzogabrielnpvale@gmail.com
+[info] [Firebase Plugin] (Core:Project) New user detected, fetching projects
+[debug] [2026-09-16T02:42:26.938Z] Checked if tokens are valid: true, expires at: 1789528961275
+[debug] [2026-09-16T02:42:26.939Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=1000
+[debug] [2026-09-16T02:42:27.858Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2026-09-16T02:42:27.860Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[debug] [2026-09-16T02:42:27.866Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2026-09-16T02:42:27.867Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[debug] [2026-09-16T02:45:54.940Z] [Firebase Plugin] Received CLI notification.
+[debug] [2026-09-16T02:45:54.974Z] [Firebase Plugin] Received emulators shutdown notification.

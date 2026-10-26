@@ -1,13 +1,8 @@
-.tabela-wrap {
-  padding: 0;
-}
-
 .tabela {
   width: 100%;
   border-collapse: collapse;
   min-width: 760px;
 }
-
 .tabela th {
   text-align: left;
   font-size: 12px;
@@ -19,7 +14,6 @@
   border-bottom: 1px solid var(--su-gray-200);
   background: var(--su-gray-50);
 }
-
 .tabela td {
   padding: 14px 18px;
   font-size: 13.5px;
@@ -27,60 +21,48 @@
   border-bottom: 1px solid var(--su-gray-100);
   white-space: nowrap;
 }
-
 .tabela tbody tr:last-child td {
   border-bottom: none;
 }
-
 .tabela tbody tr:hover {
   background: var(--su-gray-50);
 }
-
 .celula-titulo {
   white-space: normal;
   min-width: 200px;
   color: var(--su-gray-900);
   font-weight: 500;
 }
-
 .texto-prioridade {
   font-weight: 600;
 }
-
 .texto-prioridade.prio-red {
   color: var(--su-danger-600);
 }
-
 .texto-prioridade.prio-amber {
   color: var(--su-warning-600);
 }
-
 .texto-prioridade.prio-blue {
   color: var(--su-info-600);
 }
-
 .texto-prioridade.prio-gray {
   color: var(--su-gray-500);
 }
-
 .link-ver {
   color: var(--su-blue-600);
   font-weight: 600;
 }
-
 .icone-alerta {
   color: var(--su-danger-600);
   vertical-align: middle;
   margin-left: 3px;
 }
-
 .estado-vazio {
   text-align: center;
   padding: 32px !important;
   color: var(--su-gray-500);
   white-space: normal;
 }
-
 .cabecalho {
   display: flex;
   align-items: flex-start;
@@ -89,24 +71,20 @@
   margin-bottom: 22px;
   flex-wrap: wrap;
 }
-
 .cabecalho h1 {
   font-size: 22px;
   font-weight: 700;
   color: var(--su-gray-900);
 }
-
 .cabecalho .subtitulo {
   color: var(--su-gray-500);
   font-size: 14px;
   margin-top: 4px;
 }
-
 .cabecalho-acoes {
   display: flex;
   gap: 10px;
 }
-
 .filtros {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
@@ -114,38 +92,31 @@
   padding: 18px 20px;
   margin-bottom: 20px;
 }
-
 .grid-stats {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 14px;
   margin-bottom: 22px;
 }
-
 .mini-stat {
   padding: 16px 18px;
 }
-
 .mini-stat strong {
   display: block;
   font-size: 22px;
   font-weight: 700;
   color: var(--su-gray-900);
 }
-
 .mini-stat span {
   font-size: 12.5px;
   color: var(--su-gray-500);
 }
-
 .cor-blue {
   color: var(--su-info-600) !important;
 }
-
 .cor-green {
   color: var(--su-success-600) !important;
 }
-
 @media (max-width: 960px) {
   .filtros {
     grid-template-columns: 1fr;
