@@ -33,6 +33,20 @@
         </div>
 
         <div class="su-card bloco">
+          <h2>Prioridade do Relato</h2>
+          <div class="su-field">
+            <label for="prioridade">Definir prioridade</label>
+            <select id="prioridade" class="su-input su-input-plain" [ngModel]="prioridadeSelecionada()" (ngModelChange)="prioridadeSelecionada.set($event)">
+              @for (p of prioridadesDisponiveis; track p) { <option [value]="p">{{ p }}</option> }
+            </select>
+          </div>
+          <button type="button" class="su-btn su-btn-primary" (click)="salvarPrioridade()">Salvar Prioridade</button>
+          @if (prioridadeAtualizada()) {
+            <span class="confirmacao">✓ Prioridade atualizada com sucesso!</span>
+          }
+        </div>
+
+        <div class="su-card bloco">
           <h2>Responder ao Aluno</h2>
 
           <div class="su-field">
