@@ -1,14 +1,5 @@
 export const MESES = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun'];
 
-export const CORES_CATEGORIA: Record<string, string> = {
-  'Bullying': '#2aa7e0',
-  'Infraestrutura': '#16a34a',
-  'Bem-estar': '#0f9488',
-  'Sugestão': '#7c3aed',
-  'Assédio': '#d97706',
-  'Outros': '#64748b',
-};
-
 export const RELATOS_POR_MES = {
   enviados: [45, 51, 47, 61, 55, 35],
   resolvidos: [38, 44, 41, 52, 47, 30],

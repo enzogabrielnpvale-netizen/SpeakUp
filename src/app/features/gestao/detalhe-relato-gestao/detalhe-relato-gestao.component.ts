@@ -38,6 +38,8 @@ export class DetalheRelatoGestaoComponent {
   prioridadeSelecionada = signal<PrioridadeRelato>('Média');
   enviado = signal(false);
   prioridadeAtualizada = signal(false);
+  salvando = signal(false);
+  erroAtualizacao = signal<string | null>(null);
   private formInicializado = false;
 
   constructor() {
@@ -52,12 +54,30 @@ export class DetalheRelatoGestaoComponent {
     });
   }
 
-  enviarResposta(): void {
+  async enviarResposta(): Promise<void> {
     const r = this.relato();
-    if (!r || !this.resposta().trim()) return;
-    this.relatosService.responder(r.id, this.resposta().trim(), this.statusSelecionado());
-    this.enviado.set(true);
-    setTimeout(() => this.enviado.set(false), 2500);
+    if (!r || this.salvando()) return;
+
+    const resposta = this.resposta().trim();
+    const statusAlterado = this.statusSelecionado() !== r.status;
+    if (!resposta && !statusAlterado) return;
+
+    this.salvando.set(true);
+    this.erroAtualizacao.set(null);
+    try {
+      if (resposta) {
+        await this.relatosService.responder(r.id, resposta, this.statusSelecionado());
+      } else {
+        await this.relatosService.atualizarStatus(r.id, this.statusSelecionado());
+      }
+      this.enviado.set(true);
+      setTimeout(() => this.enviado.set(false), 2500);
+    } catch (error) {
+      console.error('Erro ao atualizar relato:', error);
+      this.erroAtualizacao.set('Não foi possível salvar as alterações. Verifique sua conexão e tente novamente.');
+    } finally {
+      this.salvando.set(false);
+    }
   }
 
   salvarPrioridade(): void {

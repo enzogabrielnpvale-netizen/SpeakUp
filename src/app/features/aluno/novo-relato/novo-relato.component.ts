@@ -22,6 +22,7 @@ export class NovoRelatoComponent {
   readonly categorias = CATEGORIAS;
   arquivos = signal<string[]>([]);
   enviando = signal(false);
+  erroEnvio = signal<string | null>(null);
 
   form = this.fb.nonNullable.group({
     titulo: ['', [Validators.required, Validators.minLength(4)]],
@@ -48,24 +49,43 @@ export class NovoRelatoComponent {
     this.arquivos.update((lista) => lista.filter((n) => n !== nome));
   }
 
-  enviar(): void {
+  async enviar(): Promise<void> {
     if (this.form.invalid) {
       this.form.markAllAsTouched();
       return;
     }
     const usuario = this.auth.usuario();
-    if (!usuario) return;
+    if (!usuario) {
+      this.erroEnvio.set('Sua sessão expirou. Entre novamente para enviar o relato.');
+      return;
+    }
 
     this.enviando.set(true);
+    this.erroEnvio.set(null);
     const valores = this.form.getRawValue();
-    this.relatosService.criarRelato({
-      titulo: valores.titulo,
-      descricao: valores.descricao,
-      categoria: valores.categoria as any,
-      alunoId: usuario.id,
-      alunoNome: usuario.nome,
-    });
-    this.router.navigateByUrl('/aluno/dashboard');
+    const categoria = CATEGORIAS.find((item) => item.valor === valores.categoria)?.valor;
+    if (!categoria) {
+      this.form.controls.categoria.setErrors({ required: true });
+      this.form.controls.categoria.markAsTouched();
+      this.enviando.set(false);
+      return;
+    }
+
+    try {
+      await this.relatosService.criarRelato({
+        titulo: valores.titulo,
+        descricao: valores.descricao,
+        categoria,
+        alunoId: usuario.id,
+        alunoNome: usuario.nome,
+      });
+      await this.router.navigateByUrl('/aluno/dashboard');
+    } catch (error) {
+      console.error('Erro ao salvar relato:', error);
+      this.erroEnvio.set('Não foi possível salvar o relato. Verifique sua conexão e tente novamente.');
+    } finally {
+      this.enviando.set(false);
+    }
   }
 
   cancelar(): void {

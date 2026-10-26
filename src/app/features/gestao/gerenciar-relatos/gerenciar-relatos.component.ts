@@ -30,6 +30,7 @@ export class GerenciarRelatosComponent {
   prioridadeFiltro = signal('todas');
 
   private todos = this.relatosService.relatos;
+  erroSincronizacao = this.relatosService.erroSincronizacao;
 
   total = computed(() => this.todos().length);
   recebidos = computed(() => this.todos().filter((r) => r.status === 'Recebido').length);

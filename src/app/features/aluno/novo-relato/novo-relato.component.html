@@ -14,6 +14,10 @@
   <h1>Novo Relato</h1>
   <p class="subtitulo">Preencha as informações abaixo para criar seu relato</p>
 
+  @if (erroEnvio()) {
+    <p class="su-error-text" role="alert">{{ erroEnvio() }}</p>
+  }
+
   <form [formGroup]="form" (ngSubmit)="enviar()" novalidate>
     <div class="su-card bloco">
       <label class="bloco-titulo" for="titulo">Título do Relato</label>

@@ -3,34 +3,20 @@ import { onValue, ref, set } from 'firebase/database';
 import { CategoriaRelato, PrioridadeRelato, Relato, StatusRelato } from '../models/relato.model';
 import { database } from '../../firebase';
 
-const dataExemplo = new Date().toISOString();
-const DADOS_INICIAIS: Relato[] = [
-  {
-    id: 1,
-    titulo: 'Exemplo de relato',
-    descricao: 'Este é um relato de exemplo com informações genéricas para demonstrar o funcionamento do sistema.',
-    categoria: 'Outros',
-    status: 'Recebido',
-    prioridade: 'Média',
-    alunoId: 0,
-    alunoNome: 'Usuário de exemplo',
-    criadoEm: dataExemplo,
-    atualizadoEm: dataExemplo,
-    linhaDoTempo: [{ titulo: 'Relato criado', data: dataExemplo }],
-  },
-];
-
 @Injectable({ providedIn: 'root' })
 export class RelatosService {
-  private readonly _relatos = signal<Relato[]>(DADOS_INICIAIS);
+  private readonly _relatos = signal<Relato[]>([]);
   readonly relatos = this._relatos.asReadonly();
+  readonly erroSincronizacao = signal<string | null>(null);
 
   constructor() {
     onValue(ref(database, 'relatos'), (snapshot) => {
       const dados = snapshot.val() as Record<string, Relato> | null;
-      if (dados) {
-        this._relatos.set(Object.values(dados).sort((a, b) => b.id - a.id));
-      }
+      this._relatos.set(Object.values(dados ?? {}).sort((a, b) => b.id - a.id));
+      this.erroSincronizacao.set(null);
+    }, (error) => {
+      console.error('Erro ao carregar relatos:', error);
+      this.erroSincronizacao.set(error.message);
     });
   }
 
@@ -52,15 +38,15 @@ export class RelatosService {
     return (lista ?? this._relatos()).filter((r) => r.categoria === categoria).length;
   }
 
-  criarRelato(dados: {
+  async criarRelato(dados: {
     titulo: string;
     descricao: string;
     categoria: CategoriaRelato;
     alunoId: number;
     alunoNome: string;
-  }): Relato {
+  }): Promise<Relato> {
     const novo: Relato = {
-      id: Math.max(0, ...this._relatos().map((r) => r.id)) + 1,
+      id: Math.max(Date.now(), ...this._relatos().map((r) => r.id + 1)),
       titulo: dados.titulo,
       descricao: dados.descricao,
       categoria: dados.categoria,
@@ -72,27 +58,28 @@ export class RelatosService {
       atualizadoEm: new Date().toISOString(),
       linhaDoTempo: [{ titulo: 'Relato criado', data: new Date().toISOString() }],
     };
-    this._relatos.update((lista) => [novo, ...lista]);
-    void this.persistir();
+    await set(ref(database, `relatos/${novo.id}`), novo);
+    this._relatos.update((lista) =>
+      lista.some((relato) => relato.id === novo.id) ? lista : [novo, ...lista],
+    );
     return novo;
   }
 
-  responder(id: number, resposta: string, novoStatus: StatusRelato, prioridade?: PrioridadeRelato): void {
-    this._relatos.update((lista) =>
-      lista.map((r) =>
-        r.id === id
-          ? {
-              ...r,
-              respostaGestao: resposta,
-              status: novoStatus,
-              prioridade: prioridade ?? r.prioridade,
-              atualizadoEm: new Date().toISOString(),
-              linhaDoTempo: [...r.linhaDoTempo, { titulo: 'Gestão respondeu ao relato', data: new Date().toISOString() }],
-            }
-          : r,
-      ),
-    );
-    void this.persistir();
+  async responder(id: number, resposta: string, novoStatus: StatusRelato, prioridade?: PrioridadeRelato): Promise<void> {
+    const relato = this.obterRelatoOuFalhar(id);
+    const agora = new Date().toISOString();
+    await this.salvarRelato({
+      ...relato,
+      respostaGestao: resposta,
+      status: novoStatus,
+      prioridade: prioridade ?? relato.prioridade,
+      atualizadoEm: agora,
+      linhaDoTempo: [
+        ...(relato.linhaDoTempo ?? []),
+        ...(relato.status !== novoStatus ? [{ titulo: `Status atualizado: ${novoStatus}`, data: agora }] : []),
+        { titulo: 'Gestão respondeu ao relato', data: agora },
+      ],
+    });
   }
 
   atualizarPrioridade(id: number, prioridade: PrioridadeRelato): void {
@@ -102,11 +89,31 @@ export class RelatosService {
     void this.persistir();
   }
 
-  atualizarStatus(id: number, status: StatusRelato): void {
-    this._relatos.update((lista) =>
-      lista.map((r) => (r.id === id ? { ...r, status, atualizadoEm: new Date().toISOString() } : r)),
-    );
-    void this.persistir();
+  async atualizarStatus(id: number, status: StatusRelato): Promise<void> {
+    const relato = this.obterRelatoOuFalhar(id);
+    const agora = new Date().toISOString();
+    await this.salvarRelato({
+      ...relato,
+      status,
+      atualizadoEm: agora,
+      linhaDoTempo: [
+        ...(relato.linhaDoTempo ?? []),
+        ...(relato.status !== status ? [{ titulo: `Status atualizado: ${status}`, data: agora }] : []),
+      ],
+    });
+  }
+
+  private obterRelatoOuFalhar(id: number): Relato {
+    const relato = this._relatos().find((item) => item.id === id);
+    if (!relato) {
+      throw new Error(`Relato ${id} não encontrado.`);
+    }
+    return relato;
+  }
+
+  private async salvarRelato(relato: Relato): Promise<void> {
+    await set(ref(database, `relatos/${relato.id}`), relato);
+    this._relatos.update((lista) => lista.map((item) => item.id === relato.id ? relato : item));
   }
 
   private async persistir(): Promise<void> {
