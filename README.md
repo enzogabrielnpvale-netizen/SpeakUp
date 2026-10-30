@@ -52,10 +52,8 @@ src/app/
 
 - **Standalone components + Signals**: sem NgModules; estado reativo via
   `signal`/`computed`, sem necessidade de `ChangeDetectorRef` manual.
-- **Mock de backend**: `AuthService`, `RelatosService` e `UsuariosService`
-  simulam uma API com dados em memória (persistindo apenas a sessão de login
-  no `localStorage`). Para produção, troque os métodos internos por chamadas
-  `HttpClient` mantendo a mesma superfície pública dos serviços.
+- **Firebase**: autenticação por e-mail/senha e persistência de relatos e
+  usuários no Realtime Database; os serviços mantêm estado reativo com signals.
 - **Gráficos sem dependências externas**: `BarChartComponent`,
   `LineChartComponent` e `PieChartComponent` são SVG puro — evita acoplar o
   projeto a uma lib de charts específica e facilita customização visual.
@@ -66,14 +64,31 @@ src/app/
 - **Guards por papel**: `authGuard('aluno')` / `authGuard('gestao')` barram
   acesso cruzado entre os dois portais.
 
-## Contas de acesso (mock)
+## Acesso aos relatos
 
-Não há validação de credenciais reais — qualquer e-mail/senha (mín. 6
-caracteres) autentica:
+- Alunos autenticados podem consultar apenas relatos associados ao próprio UID
+  do Firebase; podem criar relatos, mas não alterar registros existentes.
+- A gestão consulta e atualiza todos os relatos. As regras do Realtime Database
+  verificam o campo `papel` no perfil de cada conta.
+- Publique as regras com `firebase deploy --only database` (ou pelo console do
+  Firebase) para que a restrição também seja aplicada fora do código local.
+- Para liberar uma conta da gestão, localize o UID correspondente em
+  **Firebase Authentication**, abra **Realtime Database > Dados** e defina
+  `usuarios/{uid}/papel` como `gestao`. Para retirar o acesso, altere o valor
+  para `aluno` ou remova esse campo. Não permita que usuários escolham o próprio
+  papel de gestão; a regra do banco bloqueia essa alteração pelo cliente.
+- Novas contas criadas em `/registrar` recebem automaticamente
+  `usuarios/{uid}/papel: "aluno"`.
+- Relatos já existentes sem `alunoUid` continuam acessíveis à gestão, mas não
+  são exibidos aos alunos até que sua propriedade seja associada ao UID correto.
 
-- **Aluno**: tela `/login` → entra como "João Silva"
-- **Gestão**: tela `/login-gestao` → entra como "Maria Santos"
-- **Cadastro**: tela `/registrar` cria e autentica um novo aluno
+## Contas de acesso
+
+- **Aluno**: autentica com uma conta Firebase; o cadastro em `/registrar`
+  cria uma conta de aluno.
+- **Gestão**: autentica com uma conta cujo registro
+  `usuarios/{uid}/papel` tenha o valor `gestao`; consulte
+  [Acesso aos relatos](#acesso-aos-relatos) para configurar o papel.
 
 ## Telas implementadas
 

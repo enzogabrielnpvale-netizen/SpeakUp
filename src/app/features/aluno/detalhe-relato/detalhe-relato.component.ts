@@ -23,6 +23,6 @@ export class DetalheRelatoComponent {
   protected varianteStatus = varianteStatus;
   protected variantePrioridade = variantePrioridade;
 
-  private id = toSignal(this.route.paramMap.pipe(map((p) => Number(p.get('id')))), { initialValue: 0 });
+  private id = toSignal(this.route.paramMap.pipe(map((p) => p.get('id') ?? '')), { initialValue: '' });
   relato = computed(() => this.relatosService.porId(this.id()));
 }

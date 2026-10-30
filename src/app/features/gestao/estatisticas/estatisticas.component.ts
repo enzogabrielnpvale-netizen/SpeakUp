@@ -1,20 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { DecimalPipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { NavbarGestaoComponent } from '../../../shared/components/navbar/navbar-gestao.component';
 import { BarChartComponent } from '../../../shared/components/charts/bar-chart.component';
 import { LineChartComponent } from '../../../shared/components/charts/line-chart.component';
 import { PieChartComponent } from '../../../shared/components/charts/pie-chart.component';
-import {
-  CORES_CATEGORIA,
-  DETALHAMENTO_MENSAL,
-  ESTATISTICAS_DETALHADAS,
-  KPIS_GERAIS,
-  MESES,
-  RELATOS_POR_CATEGORIA,
-  RELATOS_POR_MES,
-  RESOLVIDOS_POR_MES,
-} from '../../../shared/data/analytics-mock';
+import { RelatosService } from '../../../core/services/relatos.service';
+import { CORES_CATEGORIA, calcularAnalytics } from '../../../shared/utils/analytics.util';
 
 @Component({
   selector: 'app-estatisticas',
@@ -24,50 +16,94 @@ import {
   styleUrl: './estatisticas.component.css',
 })
 export class EstatisticasComponent {
-  kpis = KPIS_GERAIS;
-  meses = MESES;
+  private readonly relatosService = inject(RelatosService);
+  private readonly analytics = computed(() => calcularAnalytics(this.relatosService.relatos()));
 
-  categoriasNomes = RELATOS_POR_CATEGORIA.map((c) => c.rotulo);
+  kpis = computed(() => {
+    const dados = this.analytics();
+    return {
+      totalRelatos: dados.totalRelatos,
+      totalRelatosVariacao: dados.variacaoRelatos,
+      relatosResolvidos: dados.relatosResolvidos,
+      relatosResolvidosVariacao: dados.variacaoResolvidos,
+      taxaResolucao: `${dados.taxaResolucao}%`,
+      taxaResolucaoMeta: `${dados.relatosResolvidos} de ${dados.totalRelatos} relatos`,
+      tempoMedio: dados.mediaResolucaoEmDias === undefined ? 'Sem dados' : `${dados.mediaResolucaoEmDias.toFixed(1)} dias`,
+      tempoMedioVariacao: 'Entre criação e última atualização',
+    };
+  });
 
-  seriesPorCategoria = [
-    { nome: 'Total', cor: '#2aa7e0', valores: RELATOS_POR_CATEGORIA.map((c) => c.valor) },
-    { nome: 'Resolvidos', cor: '#16a34a', valores: ESTATISTICAS_DETALHADAS.map((c) => c.concluidos) },
-  ];
+  meses = computed(() => this.analytics().meses.map((mes) => mes.rotulo));
+  categoriasNomes = computed(() => this.analytics().estatisticasPorCategoria.map((categoria) => categoria.categoria));
 
-  dadosPizza = RELATOS_POR_CATEGORIA.map((c) => ({ rotulo: c.rotulo, valor: c.valor, cor: CORES_CATEGORIA[c.rotulo] }));
+  seriesPorCategoria = computed(() => {
+    const categorias = this.analytics().estatisticasPorCategoria;
+    return [
+      { nome: 'Total', cor: '#2aa7e0', valores: categorias.map((categoria) => categoria.total) },
+      { nome: 'Resolvidos', cor: '#16a34a', valores: categorias.map((categoria) => categoria.concluidos) },
+    ];
+  });
 
-  serieResolvidosPorMes = [{ nome: 'Resolvidos', cor: '#2aa7e0', valores: RESOLVIDOS_POR_MES }];
+  dadosPizza = computed(() =>
+    this.analytics().estatisticasPorCategoria.map((categoria) => ({
+      rotulo: categoria.categoria,
+      valor: categoria.total,
+      cor: CORES_CATEGORIA[categoria.categoria],
+    })),
+  );
 
-  seriesEnviadosVsResolvidos = [
-    { nome: 'Enviados', cor: '#16a34a', valores: RELATOS_POR_MES.enviados },
-    { nome: 'Resolvidos', cor: '#0f9488', valores: RELATOS_POR_MES.resolvidos },
-  ];
+  serieResolvidosPorMes = computed(() => [
+    { nome: 'Resolvidos', cor: '#2aa7e0', valores: this.analytics().meses.map((mes) => mes.resolvidos) },
+  ]);
 
-  seriesAnaliseMensal = [
-    { nome: 'Bullying', cor: CORES_CATEGORIA['Bullying'], valores: DETALHAMENTO_MENSAL.map((m) => m.bullying) },
-    { nome: 'Infraestrutura', cor: CORES_CATEGORIA['Infraestrutura'], valores: DETALHAMENTO_MENSAL.map((m) => m.infraestrutura) },
-    { nome: 'Bem-estar', cor: CORES_CATEGORIA['Bem-estar'], valores: DETALHAMENTO_MENSAL.map((m) => m.bemEstar) },
-    { nome: 'Sugestão', cor: CORES_CATEGORIA['Sugestão'], valores: DETALHAMENTO_MENSAL.map((m) => m.sugestao) },
-    { nome: 'Assédio', cor: CORES_CATEGORIA['Assédio'], valores: DETALHAMENTO_MENSAL.map((m) => m.assedio) },
-    { nome: 'Outros', cor: CORES_CATEGORIA['Outros'], valores: DETALHAMENTO_MENSAL.map((m) => m.outros) },
-  ];
+  seriesEnviadosVsResolvidos = computed(() => [
+    { nome: 'Enviados', cor: '#16a34a', valores: this.analytics().meses.map((mes) => mes.enviados) },
+    { nome: 'Resolvidos', cor: '#0f9488', valores: this.analytics().meses.map((mes) => mes.resolvidos) },
+  ]);
 
-  detalhamentoMensal = DETALHAMENTO_MENSAL.map((m) => ({
-    ...m,
-    total: m.bullying + m.infraestrutura + m.bemEstar + m.sugestao + m.assedio + m.outros,
-  }));
+  seriesAnaliseMensal = computed(() =>
+    this.analytics().estatisticasPorCategoria.map((categoria) => ({
+      nome: categoria.categoria,
+      cor: CORES_CATEGORIA[categoria.categoria],
+      valores: this.analytics().meses.map((mes) => mes.porCategoria[categoria.categoria]),
+    })),
+  );
 
-  estatisticasDetalhadas = ESTATISTICAS_DETALHADAS.map((e) => ({
-    ...e,
-    taxa: Math.round((e.concluidos / e.total) * 1000) / 10,
-    cor: CORES_CATEGORIA[e.categoria],
-  }));
+  seriesResolucaoMensalPorCategoria = computed(() =>
+    this.analytics().estatisticasPorCategoria.map((categoria) => ({
+      nome: categoria.categoria,
+      cor: CORES_CATEGORIA[categoria.categoria],
+      valores: this.analytics().meses.map((mes) => mes.resolvidosPorCategoria[categoria.categoria]),
+    })),
+  );
 
-  categoriaMaisRelatada = [...RELATOS_POR_CATEGORIA].sort((a, b) => b.valor - a.valor)[0];
-  totalGeral = RELATOS_POR_CATEGORIA.reduce((soma, c) => soma + c.valor, 0);
+  detalhamentoMensal = computed(() =>
+    this.analytics().meses.map((mes) => ({
+      mes: mes.rotulo,
+      bullying: mes.porCategoria.Bullying,
+      infraestrutura: mes.porCategoria.Infraestrutura,
+      bemEstar: mes.porCategoria['Bem-estar'],
+      sugestao: mes.porCategoria.Sugestão,
+      assedio: mes.porCategoria.Assédio,
+      outros: mes.porCategoria.Outros,
+      total: mes.enviados,
+    })),
+  );
 
-  melhorTaxa = [...this.estatisticasDetalhadas].sort((a, b) => b.taxa - a.taxa)[0];
-  piorTaxa = [...this.estatisticasDetalhadas].sort((a, b) => a.taxa - b.taxa)[0];
+  estatisticasDetalhadas = computed(() =>
+    this.analytics().estatisticasPorCategoria.map((categoria) => ({
+      ...categoria,
+      taxa: categoria.total ? Math.round((categoria.concluidos / categoria.total) * 1000) / 10 : 0,
+      cor: CORES_CATEGORIA[categoria.categoria],
+    })),
+  );
+
+  categoriaMaisRelatada = computed(
+    () => this.analytics().categoriaMaisRelatada ?? { categoria: 'Sem dados', total: 0 },
+  );
+  melhorTaxa = computed(() => this.analytics().melhorTaxa ?? { categoria: 'Sem dados', taxa: 0 });
+  piorTaxa = computed(() => this.analytics().piorTaxa ?? { categoria: 'Sem dados', taxa: 0 });
+  totalGeral = computed(() => this.analytics().totalGeral);
 
   exportarPdf(): void {
     window.print();

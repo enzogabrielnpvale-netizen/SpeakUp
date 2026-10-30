@@ -43,8 +43,12 @@ export class LoginAlunoComponent {
     const valores = this.form.getRawValue();
 
     try {
-      await this.auth.loginAluno({ email: valores.email, senha: valores.senha, lembrarMe: valores.lembrarMe });
-      this.router.navigateByUrl('/aluno/dashboard');
+      const usuario = await this.auth.loginAluno({
+        email: valores.email,
+        senha: valores.senha,
+        lembrarMe: valores.lembrarMe,
+      });
+      this.router.navigateByUrl(usuario.papel === 'gestao' ? '/gestao/dashboard' : '/aluno/dashboard');
     } catch (error) {
       console.error('Erro ao fazer login do aluno:', error);
       this.form.get('senha')?.setErrors({ firebase: true });

@@ -1,0 +1,51 @@
+.pagina-termos {
+  padding-top: 32px;
+  padding-bottom: 48px;
+}
+
+.cabecalho-termos {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.cabecalho-termos h1 {
+  color: var(--su-gray-900);
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.cabecalho-termos p {
+  margin-top: 6px;
+  color: var(--su-gray-500);
+  font-size: 14px;
+}
+
+.documento-termos {
+  display: block;
+  width: 100%;
+  height: calc(100vh - 190px);
+  min-height: 500px;
+  border: 1px solid var(--su-gray-200);
+  border-radius: var(--su-radius-md);
+  background: #fff;
+}
+
+.link-voltar {
+  color: var(--su-gray-600);
+  font-size: 14px;
+}
+
+@media (max-width: 600px) {
+  .cabecalho-termos {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .documento-termos {
+    height: 70vh;
+    min-height: 400px;
+  }
+}

@@ -2,6 +2,7 @@ export type Papel = 'aluno' | 'gestao';
 
 export interface UsuarioLogado {
   id: number;
+  uid: string;
   nome: string;
   email: string;
   papel: Papel;
@@ -16,7 +17,6 @@ export interface CredenciaisLogin {
 export interface DadosCadastro {
   nome: string;
   email: string;
-  matricula: string;
   serie: string;
   senha: string;
   confirmarSenha: string;

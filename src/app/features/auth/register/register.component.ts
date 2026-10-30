@@ -3,6 +3,7 @@ import { AbstractControl, FormBuilder, ReactiveFormsModule, ValidationErrors, Va
 import { Router, RouterLink } from '@angular/router';
 import { LogoComponent } from '../../../shared/components/logo/logo.component';
 import { AuthService } from '../../../core/services/auth.service';
+import { SERIES_ESCOLARES } from '../../../core/models/usuario.model';
 
 function senhasIguaisValidator(control: AbstractControl): ValidationErrors | null {
   const senha = control.get('senha')?.value;
@@ -26,13 +27,12 @@ export class RegisterComponent {
   confirmarVisivel = signal(false);
   enviando = signal(false);
 
-  readonly series = ['7° Ano', '8° Ano', '9° Ano', '1° EM', '2° EM', '3° EM'];
+  readonly series = SERIES_ESCOLARES;
 
   form = this.fb.nonNullable.group(
     {
       nome: ['', [Validators.required, Validators.minLength(3)]],
       email: ['', [Validators.required, Validators.email]],
-      matricula: ['', [Validators.required, Validators.pattern(/^\d{4,10}$/)]],
       serie: ['', [Validators.required]],
       senha: ['', [Validators.required, Validators.minLength(6)]],
       confirmarSenha: ['', [Validators.required]],

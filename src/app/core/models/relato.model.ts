@@ -16,13 +16,14 @@ export interface EventoLinhaDoTempo {
 }
 
 export interface Relato {
-  id: number;
+  id: string;
   titulo: string;
   descricao: string;
   categoria: CategoriaRelato;
   status: StatusRelato;
   prioridade: PrioridadeRelato;
   alunoId: number;
+  alunoUid?: string;
   alunoNome: string;
   criadoEm: string; // ISO
   atualizadoEm: string; // ISO

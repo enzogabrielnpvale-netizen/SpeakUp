@@ -1,7 +1,7 @@
 <div class="split">
   <div class="split-form">
     <div class="split-form-inner">
-      <div class="logo"><app-logo tamanho="lg" /></div>
+      <div class="logo"><a routerLink="/" aria-label="Ir para a página inicial"><app-logo tamanho="lg" /></a></div>
 
       <h1>Bem-vindo de volta</h1>
       <p class="subtitulo">Acesse sua conta de aluno</p>
@@ -26,11 +26,6 @@
             <input [type]="senhaVisivel() ? 'text' : 'password'" id="senha" class="su-input" placeholder="••••••••" formControlName="senha"
               [class.su-input-error]="f.senha.invalid && f.senha.touched" />
             <button type="button" class="su-toggle-visibility" (click)="alternarSenha()" [attr.aria-label]="senhaVisivel() ? 'Ocultar senha' : 'Mostrar senha'">
-              @if (senhaVisivel()) {
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.94 17.94A10.94 10.94 0 0 1 12 20c-7 0-11-8-11-8a21.6 21.6 0 0 1 5.06-6.06M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a21.6 21.6 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24" /><line x1="1" y1="1" x2="23" y2="23" /></svg>
-              } @else {
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" /><circle cx="12" cy="12" r="3" /></svg>
-              }
             </button>
           </div>
           @if (f.senha.invalid && f.senha.touched) {
@@ -63,11 +58,5 @@
     <h2>Sua voz faz a diferença</h2>
     <p>Relate situações, acompanhe soluções e contribua para um ambiente escolar melhor e mais seguro.</p>
 
-    <div class="split-stats">
-      <div class="split-stat"><strong>98%</strong><span>Taxa de resolução</span></div>
-      <div class="split-stat"><strong>500+</strong><span>Relatos resolvidos</span></div>
-    </div>
   </div>
 </div>
-
-<button class="ajuda-flutuante" type="button" aria-label="Ajuda">?</button>

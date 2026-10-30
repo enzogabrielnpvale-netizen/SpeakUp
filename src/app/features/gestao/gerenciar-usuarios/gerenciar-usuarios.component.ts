@@ -3,9 +3,7 @@ import { RouterLink } from '@angular/router';
 import { NavbarGestaoComponent } from '../../../shared/components/navbar/navbar-gestao.component';
 import { UsuariosService } from '../../../core/services/usuarios.service';
 import { RelatosService } from '../../../core/services/relatos.service';
-import { SerieEscolar } from '../../../core/models/usuario.model';
-
-const SERIES: SerieEscolar[] = ['7° Ano', '8° Ano', '9° Ano', '1° EM', '2° EM', '3° EM'];
+import { ehUsuarioGestao, SERIES_ESCOLARES } from '../../../core/models/usuario.model';
 
 @Component({
   selector: 'app-gerenciar-usuarios',
@@ -18,7 +16,7 @@ export class GerenciarUsuariosComponent {
   private usuariosService = inject(UsuariosService);
   private relatosService = inject(RelatosService);
 
-  protected series = SERIES;
+  protected series = SERIES_ESCOLARES;
 
   busca = signal('');
   serieFiltro = signal('todas');
@@ -40,12 +38,12 @@ export class GerenciarUsuariosComponent {
 
     return this.usuariosService
       .usuarios()
+      .filter((usuario) => !ehUsuarioGestao(usuario))
       .filter(
         (u) =>
           !termo ||
           u.nome.toLowerCase().includes(termo) ||
-          u.email.toLowerCase().includes(termo) ||
-          u.matricula.includes(termo),
+          u.email.toLowerCase().includes(termo),
       )
       .filter((u) => serie === 'todas' || u.serie === serie)
       .filter((u) => status === 'todos' || u.status === status);

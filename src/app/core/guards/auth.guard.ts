@@ -1,13 +1,14 @@
-import { inject } from '@angular/core';
+import { inject, Injector } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
-import { AuthService } from '../services/auth.service';
 import { Papel } from '../models/auth.model';
 
 /** Protege rotas exigindo autenticação e, opcionalmente, um papel específico. */
 export function authGuard(papelExigido?: Papel): CanActivateFn {
-  return () => {
-    const auth = inject(AuthService);
+  return async () => {
+    const injector = inject(Injector);
     const router = inject(Router);
+    const { AuthService } = await import('../services/auth.service');
+    const auth = injector.get(AuthService);
     const usuario = auth.usuario();
 
     if (!usuario) {

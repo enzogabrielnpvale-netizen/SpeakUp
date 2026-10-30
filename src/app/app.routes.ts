@@ -22,6 +22,17 @@ export const routes: Routes = [
     loadComponent: () => import('./features/auth/register/register.component').then((m) => m.RegisterComponent),
     title: 'Criar conta — SpeakUp',
   },
+  {
+    path: 'termos-privacidade',
+    loadComponent: () =>
+      import('./features/auth/termos-privacidade/termos-privacidade.component').then((m) => m.TermosPrivacidadeComponent),
+    title: 'Termos de Uso e Política de Privacidade — SpeakUp',
+  },
+  {
+    path: 'esqueci-senha',
+    loadComponent: () => import('./features/auth/forgot-password/forgot-password.component').then((m) => m.ForgotPasswordComponent),
+    title: 'Recuperar senha — SpeakUp',
+  },
 
   // ---- Área do aluno ----
   {

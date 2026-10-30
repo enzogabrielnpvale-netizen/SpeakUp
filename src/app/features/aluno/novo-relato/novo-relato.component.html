@@ -1,8 +1,6 @@
 <header class="topo-simples">
   <div class="su-container topo-simples-inner">
-    <span class="marca"><span class="marca-icone">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></svg>
-    </span>SpeakUp</span>
+    <a routerLink="/" aria-label="Ir para a página inicial"><app-logo /></a>
     <a routerLink="/aluno/dashboard" class="link-voltar">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12" /><polyline points="12 19 5 12 12 5" /></svg>
       Voltar ao Dashboard
@@ -52,31 +50,12 @@
       }
     </div>
 
-    <div class="su-card bloco">
-      <span class="bloco-titulo">Anexar Imagens (Opcional)</span>
-      <label class="dropzone">
-        <input type="file" accept="image/png,image/jpeg" multiple hidden (change)="aoSelecionarArquivos($event)" />
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="17 8 12 3 7 8" /><line x1="12" y1="3" x2="12" y2="15" /></svg>
-        <span>Clique para adicionar imagens</span>
-        <small>PNG, JPG até 5MB</small>
-      </label>
-
-      @if (arquivos().length) {
-        <ul class="lista-arquivos">
-          @for (nome of arquivos(); track nome) {
-            <li>{{ nome }} <button type="button" (click)="removerArquivo(nome)" aria-label="Remover arquivo">×</button></li>
-          }
-        </ul>
-      }
-    </div>
-
-    <div class="alerta-privacidade">
-      <strong>Privacidade:</strong> Seu relato será enviado de forma confidencial à gestão escolar. Apenas pessoas autorizadas terão acesso às informações.
-    </div>
-
     <div class="acoes-form">
       <button type="submit" class="su-btn su-btn-primary" [disabled]="enviando()">Enviar Relato</button>
       <button type="button" class="su-btn su-btn-outline" (click)="cancelar()">Cancelar</button>
     </div>
+    @if (erroEnvio()) {
+      <p class="su-error-text" role="alert">{{ erroEnvio() }}</p>
+    }
   </form>
 </main>

@@ -18,6 +18,7 @@ export class LoginGestaoComponent {
 
   senhaVisivel = signal(false);
   enviando = signal(false);
+  erroLogin = signal('');
 
   form = this.fb.nonNullable.group({
     email: ['', [Validators.required, Validators.email]],
@@ -40,6 +41,7 @@ export class LoginGestaoComponent {
     }
 
     this.enviando.set(true);
+    this.erroLogin.set('');
     const valores = this.form.getRawValue();
 
     try {
@@ -47,7 +49,14 @@ export class LoginGestaoComponent {
       this.router.navigateByUrl('/gestao/dashboard');
     } catch (error) {
       console.error('Erro ao fazer login da gestão:', error);
-      this.form.get('senha')?.setErrors({ firebase: true });
+      this.erroLogin.set(
+        error instanceof Error && error.message === 'Esta conta não possui permissão de gestão.'
+          ? 'Credenciais aceitas, mas o papel desta conta no Realtime Database não está definido como "gestao".'
+          : error instanceof Error &&
+              error.message === 'Não foi possível consultar o papel da conta no Realtime Database.'
+            ? 'Não foi possível verificar seu acesso. Confira as regras do Realtime Database e tente novamente.'
+          : 'Não foi possível entrar. Verifique seu e-mail e sua senha.',
+      );
     } finally {
       this.enviando.set(false);
     }

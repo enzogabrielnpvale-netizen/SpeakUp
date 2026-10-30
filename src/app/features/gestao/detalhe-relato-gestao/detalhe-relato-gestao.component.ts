@@ -7,10 +7,11 @@ import { NavbarGestaoComponent } from '../../../shared/components/navbar/navbar-
 import { BadgeComponent } from '../../../shared/components/badge/badge.component';
 import { DataBrPipe } from '../../../shared/pipes/data-br.pipe';
 import { RelatosService } from '../../../core/services/relatos.service';
-import { StatusRelato } from '../../../core/models/relato.model';
+import { PrioridadeRelato, StatusRelato } from '../../../core/models/relato.model';
 import { varianteCategoria, variantePrioridade, varianteStatus } from '../../../shared/utils/relato-visual.util';
 
 const STATUS_DISPONIVEIS: StatusRelato[] = ['Recebido', 'Em Análise', 'Em Andamento', 'Resolvido'];
+const PRIORIDADES_DISPONIVEIS: PrioridadeRelato[] = ['Baixa', 'Média', 'Alta', 'Urgente'];
 
 @Component({
   selector: 'app-detalhe-relato-gestao',
@@ -27,13 +28,18 @@ export class DetalheRelatoGestaoComponent {
   protected varianteStatus = varianteStatus;
   protected variantePrioridade = variantePrioridade;
   protected statusDisponiveis = STATUS_DISPONIVEIS;
+  protected prioridadesDisponiveis = PRIORIDADES_DISPONIVEIS;
 
-  private id = toSignal(this.route.paramMap.pipe(map((p) => Number(p.get('id')))), { initialValue: 0 });
+  private id = toSignal(this.route.paramMap.pipe(map((p) => p.get('id') ?? '')), { initialValue: '' });
   relato = computed(() => this.relatosService.porId(this.id()));
 
   resposta = signal('');
   statusSelecionado = signal<StatusRelato>('Em Análise');
+  prioridadeSelecionada = signal<PrioridadeRelato>('Média');
   enviado = signal(false);
+  prioridadeAtualizada = signal(false);
+  atualizandoPrioridade = signal(false);
+  erroPrioridade = signal('');
   private formInicializado = false;
 
   constructor() {
@@ -42,9 +48,29 @@ export class DetalheRelatoGestaoComponent {
       if (r && !this.formInicializado) {
         this.resposta.set(r.respostaGestao ?? '');
         this.statusSelecionado.set(r.status);
+        this.prioridadeSelecionada.set(r.prioridade);
         this.formInicializado = true;
       }
     });
+  }
+
+  async atualizarPrioridade(): Promise<void> {
+    const r = this.relato();
+    if (!r || this.atualizandoPrioridade()) return;
+
+    this.atualizandoPrioridade.set(true);
+    this.erroPrioridade.set('');
+    this.prioridadeAtualizada.set(false);
+    try {
+      await this.relatosService.atualizarPrioridade(r.id, this.prioridadeSelecionada());
+      this.prioridadeAtualizada.set(true);
+      setTimeout(() => this.prioridadeAtualizada.set(false), 2500);
+    } catch (error) {
+      console.error('Erro ao atualizar prioridade do relato:', error);
+      this.erroPrioridade.set('Não foi possível atualizar a prioridade. Tente novamente.');
+    } finally {
+      this.atualizandoPrioridade.set(false);
+    }
   }
 
   enviarResposta(): void {

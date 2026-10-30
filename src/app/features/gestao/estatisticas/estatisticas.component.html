@@ -25,52 +25,54 @@
   <div class="grid-kpis">
     <div class="su-card kpi-card">
       <span class="kpi-label">Total de Relatos</span>
-      <strong class="kpi-valor">{{ kpis.totalRelatos }}</strong>
-      <span class="kpi-variacao positiva">↗ {{ kpis.totalRelatosVariacao }}</span>
+      <strong class="kpi-valor">{{ kpis().totalRelatos }}</strong>
+      <span class="kpi-variacao neutra">{{ kpis().totalRelatosVariacao }}</span>
     </div>
     <div class="su-card kpi-card">
       <span class="kpi-label">Relatos Resolvidos</span>
-      <strong class="kpi-valor cor-green">{{ kpis.relatosResolvidos }}</strong>
-      <span class="kpi-variacao positiva">↗ {{ kpis.relatosResolvidosVariacao }}</span>
+      <strong class="kpi-valor cor-green">{{ kpis().relatosResolvidos }}</strong>
+      <span class="kpi-variacao neutra">{{ kpis().relatosResolvidosVariacao }}</span>
     </div>
     <div class="su-card kpi-card">
       <span class="kpi-label">Taxa de Resolução</span>
-      <strong class="kpi-valor">{{ kpis.taxaResolucao }}</strong>
-      <span class="kpi-variacao neutra">{{ kpis.taxaResolucaoMeta }}</span>
+      <strong class="kpi-valor">{{ kpis().taxaResolucao }}</strong>
+      <span class="kpi-variacao neutra">{{ kpis().taxaResolucaoMeta }}</span>
     </div>
     <div class="su-card kpi-card">
       <span class="kpi-label">Tempo Médio</span>
-      <strong class="kpi-valor">{{ kpis.tempoMedio }}</strong>
-      <span class="kpi-variacao positiva">↘ {{ kpis.tempoMedioVariacao }}</span>
+      <strong class="kpi-valor">{{ kpis().tempoMedio }}</strong>
+      <span class="kpi-variacao neutra">{{ kpis().tempoMedioVariacao }}</span>
     </div>
   </div>
 
   <div class="grid-2">
     <div class="su-card bloco">
       <h2>Relatos por Categoria</h2>
-      <app-bar-chart [categorias]="categoriasNomes" [series]="seriesPorCategoria" />
+      <app-bar-chart [categorias]="categoriasNomes()" [series]="seriesPorCategoria()" />
     </div>
     <div class="su-card bloco">
       <h2>Distribuição por Categoria</h2>
-      <app-pie-chart [dados]="dadosPizza" />
+      <app-pie-chart [dados]="dadosPizza()" />
     </div>
   </div>
 
   <div class="grid-2">
     <div class="su-card bloco">
       <h2>Relatos Resolvidos por Mês</h2>
-      <app-line-chart [categorias]="meses" [series]="serieResolvidosPorMes" />
+      <p class="descricao-bloco">Agrupados pelo mês da última atualização do relato</p>
+      <app-line-chart [categorias]="meses()" [series]="serieResolvidosPorMes()" />
     </div>
     <div class="su-card bloco">
       <h2>Enviados vs Resolvidos</h2>
-      <app-line-chart [categorias]="meses" [series]="seriesEnviadosVsResolvidos" />
+      <p class="descricao-bloco">Envios pela criação; resoluções pela última atualização</p>
+      <app-line-chart [categorias]="meses()" [series]="seriesEnviadosVsResolvidos()" />
     </div>
   </div>
 
   <div class="su-card bloco">
     <h2>Análise Mensal por Categoria</h2>
-    <p class="descricao-bloco">Relatos resolvidos separados por categoria ao longo dos meses</p>
-    <app-bar-chart [categorias]="meses" [series]="seriesAnaliseMensal" />
+    <p class="descricao-bloco">Relatos registrados por categoria nos últimos seis meses</p>
+    <app-bar-chart [categorias]="meses()" [series]="seriesAnaliseMensal()" />
   </div>
 
   <div class="su-card bloco">
@@ -83,7 +85,7 @@
           </tr>
         </thead>
         <tbody>
-          @for (m of detalhamentoMensal; track m.mes) {
+          @for (m of detalhamentoMensal(); track m.mes) {
             <tr>
               <td class="celula-titulo">{{ m.mes }}</td>
               <td>{{ m.bullying }}</td>
@@ -102,8 +104,8 @@
 
   <div class="su-card bloco">
     <h2>Tendência de Resolução por Categoria</h2>
-    <p class="descricao-bloco">Comparação mensal entre categorias para identificar padrões</p>
-    <app-line-chart [categorias]="meses" [series]="seriesAnaliseMensal" />
+    <p class="descricao-bloco">Resoluções por categoria, agrupadas pelo mês da última atualização</p>
+    <app-line-chart [categorias]="meses()" [series]="seriesResolucaoMensalPorCategoria()" />
   </div>
 
   <div class="su-card bloco">
@@ -114,7 +116,7 @@
           <tr><th>Categoria</th><th>Total de Relatos</th><th>Concluídos</th><th>Em Andamento</th><th>Taxa de Conclusão</th></tr>
         </thead>
         <tbody>
-          @for (e of estatisticasDetalhadas; track e.categoria) {
+          @for (e of estatisticasDetalhadas(); track e.categoria) {
             <tr>
               <td class="celula-titulo">{{ e.categoria }}</td>
               <td>{{ e.total }}</td>
@@ -136,18 +138,18 @@
   <div class="grid-destaques">
     <div class="destaque destaque-azul">
       <span class="destaque-label">Categoria Mais Relatada</span>
-      <strong>{{ categoriaMaisRelatada.rotulo }}</strong>
-      <span class="destaque-info">{{ categoriaMaisRelatada.valor }} relatos ({{ (categoriaMaisRelatada.valor / totalGeral * 100) | number:'1.0-0' }}% do total)</span>
+      <strong>{{ categoriaMaisRelatada().categoria }}</strong>
+      <span class="destaque-info">{{ categoriaMaisRelatada().total }} relatos ({{ (categoriaMaisRelatada().total / (totalGeral() || 1) * 100) | number:'1.0-0' }}% do total)</span>
     </div>
     <div class="destaque destaque-verde">
       <span class="destaque-label">Melhor Taxa de Resolução</span>
-      <strong>{{ melhorTaxa.categoria }}</strong>
-      <span class="destaque-info">{{ melhorTaxa.taxa }}% resolvidos</span>
+      <strong>{{ melhorTaxa().categoria }}</strong>
+      <span class="destaque-info">{{ melhorTaxa().taxa }}% resolvidos</span>
     </div>
     <div class="destaque destaque-laranja">
       <span class="destaque-label">Requer Atenção</span>
-      <strong>{{ piorTaxa.categoria }}</strong>
-      <span class="destaque-info">{{ piorTaxa.taxa }}% resolvidos</span>
+      <strong>{{ piorTaxa().categoria }}</strong>
+      <span class="destaque-info">{{ piorTaxa().taxa }}% resolvidos</span>
     </div>
   </div>
 </main>

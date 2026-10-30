@@ -53,6 +53,28 @@
             <span class="confirmacao">✓ Resposta enviada com sucesso!</span>
           }
         </div>
+
+        <div class="su-card bloco">
+          <h2>Prioridade do Relato</h2>
+          <div class="su-field">
+            <label for="prioridade-relato">Definir prioridade</label>
+            <select id="prioridade-relato" class="su-input su-input-plain"
+              [ngModel]="prioridadeSelecionada()" (ngModelChange)="prioridadeSelecionada.set($event)">
+              @for (prioridade of prioridadesDisponiveis; track prioridade) {
+                <option [value]="prioridade">{{ prioridade }}</option>
+              }
+            </select>
+          </div>
+          <button type="button" class="su-btn su-btn-primary" (click)="atualizarPrioridade()" [disabled]="atualizandoPrioridade()">
+            {{ atualizandoPrioridade() ? 'Salvando...' : 'Salvar Prioridade' }}
+          </button>
+          @if (prioridadeAtualizada()) {
+            <span class="confirmacao">✓ Prioridade atualizada com sucesso!</span>
+          }
+          @if (erroPrioridade()) {
+            <p class="su-error-text" role="alert">{{ erroPrioridade() }}</p>
+          }
+        </div>
       </div>
 
       <div class="coluna-lateral">
