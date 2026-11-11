@@ -67,11 +67,24 @@ export class AuthService {
     }
   }
 
+  private async buscarNome(uid: string): Promise<string | null> {
+    try {
+      const snapshot = await get(ref(database, `usuarios/${uid}/nome`));
+      const nome: unknown = snapshot.val();
+      return typeof nome === 'string' && nome.trim() ? nome : null;
+    } catch (error) {
+      console.error('Erro ao consultar o nome do usuário no Realtime Database:', error);
+      throw new Error('Não foi possível consultar o nome da conta no Realtime Database.');
+    }
+  }
+
   async loginAluno(credenciais: CredenciaisLogin): Promise<UsuarioLogado> {
     const result = await signInWithEmailAndPassword(auth, credenciais.email, credenciais.senha);
     let papel: Papel | null;
+    let nome: string | null;
     try {
       papel = await this.buscarPapel(result.user.uid);
+      nome = await this.buscarNome(result.user.uid);
     } catch (error) {
       await signOut(auth);
       this.limparSessao();
@@ -81,7 +94,7 @@ export class AuthService {
     const usuario: UsuarioLogado = {
       id: parseInt(result.user.uid.slice(0, 8), 16) || Date.now(),
       uid: result.user.uid,
-      nome: result.user.displayName ?? result.user.email?.split('@')[0] ?? 'João Silva',
+      nome: nome ?? result.user.displayName ?? result.user.email?.split('@')[0] ?? 'João Silva',
       email: result.user.email ?? credenciais.email,
       papel: papel ?? 'aluno',
     };
@@ -93,8 +106,10 @@ export class AuthService {
   async loginGestao(credenciais: CredenciaisLogin): Promise<UsuarioLogado> {
     const result = await signInWithEmailAndPassword(auth, credenciais.email, credenciais.senha);
     let papel: Papel | null;
+    let nome: string | null;
     try {
       papel = await this.buscarPapel(result.user.uid);
+      nome = await this.buscarNome(result.user.uid);
     } catch (error) {
       await signOut(auth);
       this.limparSessao();
@@ -110,7 +125,7 @@ export class AuthService {
     const usuario: UsuarioLogado = {
       id: parseInt(result.user.uid.slice(0, 8), 16) || Date.now(),
       uid: result.user.uid,
-      nome: result.user.displayName ?? result.user.email?.split('@')[0] ?? 'Maria Santos',
+      nome: nome ?? result.user.displayName ?? result.user.email?.split('@')[0] ?? 'Maria Santos',
       email: result.user.email ?? credenciais.email,
       papel: 'gestao',
     };

@@ -192,23 +192,6 @@
   color: var(--su-gray-500);
 }
 
-.ajuda-flutuante {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: #fff;
-  border: 1px solid var(--su-gray-200);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: var(--su-shadow-md);
-  color: var(--su-gray-600);
-  font-weight: 700;
-}
-
 @media (max-width: 900px) {
   .split { grid-template-columns: 1fr; }
   .split-info { order: -1; padding: 40px; }

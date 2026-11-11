@@ -2,6 +2,14 @@
   "projects": {
     "default": "claudespu"
   },
-  "targets": {},
+  "targets": {
+    "claudespu": {
+      "hosting": {
+        "cemispeakup": [
+          "cemispeakup"
+        ]
+      }
+    }
+  },
   "etags": {}
 }
